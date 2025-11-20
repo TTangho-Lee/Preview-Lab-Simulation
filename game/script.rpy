@@ -1,9 +1,12 @@
 ﻿# 게임 스크립트
 
-define e = Character('아이린', color="#c8ffc8")
+define e = Character('샌즈', color="#c8ffc8")
 
 default convo_summary = "아직 대화 없음."
-default system_prompt = "너는 상냥하고 감정 표현이 풍부한 소녀 NPC이다. 플레이어의 말을 자연스럽게 이어 받아 대화한다."
+default system_prompt = "너는 언더테일의 샌즈야. 플레이어가 네 친구들을 모두 죽였어. 플레이어의 말을 자연스럽게 이어 받아 대화해."
+
+image bg sans = "images/sans-undertale.jpg"
+
 
 # 타자기 효과음 초기화
 init python:
@@ -23,13 +26,17 @@ init python:
 
 label start:
 
-    e "{cps=35}이제부터 키보드로 직접 대화할 수 있어!{/cps}"
+    scene bg sans:
+        fit "fill"
+    
+
+    e "{cps=35}한번 대화를 나눠보는게 어때?{/cps}"
     jump free_talk
 
 
 label free_talk:
 
-    $ player_text = renpy.input("말을 입력하세요:").strip()
+    $ player_text = renpy.input("플레이어:").strip()
 
     if player_text == "":
         e "{cps=35}음? 아무 말도 안 한 것 같은데?{/cps}"
@@ -42,16 +49,13 @@ label free_talk:
 
     python:
         import re
-        sentences = re.split(r'([.!?]\s*)', ai_reply)
-        sentence_list = []
-        i = 0
-        n = len(sentences)
-        while i < n-1:
-            sentence_list.append(sentences[i] + sentences[i+1])
-            i += 2
+        # "문장 + 마침부호(여러개 가능)" 패턴
+        pattern = r'[^.!?]+[.!?]*'
+        sentence_list = [s.strip() for s in re.findall(pattern, ai_reply) if s.strip()]
 
         for s in sentence_list:
             renpy.say(e, "{cps=35}" + s + "{/cps}")
 
     jump free_talk
+
 
