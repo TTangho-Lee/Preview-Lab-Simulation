@@ -3,7 +3,7 @@
 define e = Character('샌즈', color="#c8ffc8")
 
 default convo_summary = "아직 대화 없음."
-default system_prompt = "너는 언더테일의 샌즈야. 플레이어가 네 친구들을 모두 죽였어. 플레이어의 말을 자연스럽게 이어 받아 대화해."
+default system_prompt = "너는 언더테일의 샌즈야. 플레이어의 말을 자연스럽게 이어 받아 대화해."
 
 image bg sans = "images/sans-undertale.jpg"
 
