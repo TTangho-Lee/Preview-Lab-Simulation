@@ -1,14 +1,14 @@
 init python:
     def apply_love_change(delta):
+        global love_haru, love_yuki, love_mina
         if delta is None:
             return
-
         if current_character == "haru":
-            persistent.love_haru = max(0, min(100, persistent.love_haru + delta))
+            love_haru = max(0, min(100, love_haru + delta))
         elif current_character == "yuki":
-            persistent.love_yuki = max(0, min(100, persistent.love_yuki + delta))
+            love_yuki = max(0, min(100, love_yuki + delta))
         elif current_character == "mina":
-            persistent.love_mina = max(0, min(100, persistent.love_mina + delta))
+            love_mina = max(0, min(100, love_mina + delta))
 
     def get_character_expression(love):
         if love < 30:
@@ -33,19 +33,26 @@ init python:
             return "rooftop"
 
     def check_event(character):
-        love = getattr(persistent, f"love_{character}")
-        talk = getattr(persistent, f"talk_{character}")
+        global talk_haru, talk_yuki, talk_mina
+        global love_haru, love_yuki, love_mina
 
-        # 이벤트 1
+        if character == "haru":
+            talk = talk_haru or 0
+            love = love_haru or 0
+        elif character == "yuki":
+            talk = talk_yuki or 0
+            love = love_yuki or 0
+        elif character == "mina":
+            talk = talk_mina or 0
+            love = love_mina or 0
+        else:
+            talk = 0
+            love = 0
+
         if talk >= 5 and love >= 40:
             return f"event_{character}_1"
-
-        # 이벤트 2
         if talk >= 10 and love >= 60:
             return f"event_{character}_2"
-
-        # 엔딩
         if talk >= 20 and love >= 90:
             return f"ending_{character}"
-
         return None

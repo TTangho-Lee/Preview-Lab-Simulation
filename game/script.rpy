@@ -1,27 +1,31 @@
 ﻿# script.rpy
-
+python:
+    import re
 # ----------------------------------
 # 게임 시작
 # ----------------------------------
 label start:
-    show screen top_menu
-    if persistent.player_name and persistent.player_name != "플레이어":
+    if player_name and player_name != "플레이어":
         jump skip_name
     else:
-        $ persistent.player_name = renpy.input("당신의 이름은?").strip()
-        if persistent.player_name == "":
-            $ persistent.player_name = "플레이어"
+        $ player_name = renpy.input("당신의 이름은?").strip()
+        if player_name == "":
+            $ player_name = "플레이어"
         jump skip_name
 
 label skip_name:
-    if persistent.current_character:
-        $ current_character = persistent.current_character
+    if current_character:
+        $ current_character = current_character
         jump start_talk
     else:
         jump choose_character
 
 label choose_character:
+    hide screen config_menu
+    
     scene bg classroom
+
+    $ current_character=None
 
     show haru normal at center
     haru "{cps=35}안녕~ 나는 하루야. 만나서 반가워.
@@ -42,31 +46,37 @@ label choose_character:
     menu:
         "하루 (상냥한 소녀)":
             $ current_character = "haru"
-            $ persistent.current_character = "haru"
+            $ current_character = "haru"
             jump start_talk
 
         "유키 (시크한 소녀)":
             $ current_character = "yuki"
-            $ persistent.current_character = "yuki"
+            $ current_character = "yuki"
             jump start_talk
 
         "미나 (발랄한 소녀)":
             $ current_character = "mina"
-            $ persistent.current_character = "mina"
+            $ current_character = "mina"
             jump start_talk
 
 label change_name:
     hide screen config_menu
     $ new_name = renpy.input("새 이름을 입력하세요:").strip()
     if new_name != "":
-        $ persistent.player_name = new_name
+        $ player_name = new_name
     "이름이 변경되었습니다."
-    jump free_talk
+    # 이름 변경 후 현재 캐릭터 대화 루프 진입
+    if current_character:
+        jump free_talk
+    else:
+        jump choose_character
+
 
 # ----------------------------------
 # 첫 대사
 # ----------------------------------
 label start_talk:
+    show screen top_menu
     show screen love_meter
     if current_character == "haru":
         scene bg classroom
@@ -87,7 +97,7 @@ label start_talk:
 # ----------------------------------
 label free_talk:
     # 플레이어 입력
-    $ player_text = renpy.input(f"{persistent.player_name}:").strip()
+    $ player_text = renpy.input(f"{player_name}:").strip()
 
     if player_text == "":
         "……아무 말도 안 한 것 같아."
@@ -95,36 +105,36 @@ label free_talk:
 
     # GPT 호출
     if current_character == "haru":
-        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_haru, persistent.summary_haru, player_text)
-        $ persistent.summary_haru = new_summary
-        $ persistent.talk_haru += 1
-        $ persistent.history_haru.append(f"{persistent.player_name}:{player_text} / 하루:{ai_reply}")
-        $ persistent.history_haru = persistent.history_haru[-3:]
+        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_haru, summary_haru, player_text)
+        $ summary_haru = new_summary
+        $ talk_haru += 1
+        $ history_haru.append(f"{player_name}:{player_text} / 하루:{ai_reply}")
+        $ history_haru = history_haru[-3:]
 
     elif current_character == "yuki":
-        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_yuki, persistent.summary_yuki, player_text)
-        $ persistent.summary_yuki = new_summary
-        $ persistent.talk_yuki += 1
-        $ persistent.history_yuki.append(f"{persistent.player_name}:{player_text} / 유키:{ai_reply}")
-        $ persistent.history_yuki = persistent.history_yuki[-3:]
+        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_yuki, summary_yuki, player_text)
+        $ summary_yuki = new_summary
+        $ talk_yuki += 1
+        $ history_yuki.append(f"{player_name}:{player_text} / 유키:{ai_reply}")
+        $ history_yuki = history_yuki[-3:]
 
     elif current_character == "mina":
-        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_mina, persistent.summary_mina, player_text)
-        $ persistent.summary_mina = new_summary
-        $ persistent.talk_mina += 1
-        $ persistent.history_mina.append(f"{persistent.player_name}:{player_text} / 미나:{ai_reply}")
-        $ persistent.history_mina = persistent.history_mina[-3:]
+        $ ai_reply, love_delta, new_summary = gemini_generate_response(system_prompt_mina, summary_mina, player_text)
+        $ summary_mina = new_summary
+        $ talk_mina += 1
+        $ history_mina.append(f"{player_name}:{player_text} / 미나:{ai_reply}")
+        $ history_mina = history_mina[-3:]
 
     # 호감도 적용
     $ apply_love_change(love_delta)
 
     # 표정·배경 결정
     if current_character == "haru":
-        $ love_val = persistent.love_haru
+        $ love_val = love_haru
     elif current_character == "yuki":
-        $ love_val = persistent.love_yuki
+        $ love_val = love_yuki
     else:
-        $ love_val = persistent.love_mina
+        $ love_val = love_mina
     $ expr = get_character_expression(love_val)
     $ bg_tag = get_background(love_val)
 
@@ -137,7 +147,6 @@ label free_talk:
 
     # 대사 출력
     python:
-        import re
         sentences = [s.strip() for s in re.findall(r'[^.!?]+[.!?]*', ai_reply) if s.strip()]
         for s in sentences:
             if current_character == "haru":
@@ -153,4 +162,3 @@ label free_talk:
         jump expression ev
 
     jump free_talk
-
