@@ -4,12 +4,12 @@
 label event_haru_1:
     show haru happy
     haru "{cps=35}어? 우리 벌써 이렇게 친해진 거야? 고마워…{/cps}"
-    return
+    jump free_talk
 
 label event_haru_2:
     show haru shy
     haru "{cps=35}이런 말 해도 되나... 좀 부끄럽네.{/cps}"
-    return
+    jump free_talk
 
 label ending_haru:
     show haru love
@@ -20,12 +20,12 @@ label ending_haru:
 label event_yuki_1:
     show yuki normal
     yuki "{cps=35}흥, 네가 그렇게 말하다니. 조금은 인정해줄게.{/cps}"
-    return
+    jump free_talk
 
 label event_yuki_2:
     show yuki shy
     yuki "{cps=35}…그만 놀려. 진짜로 기뻐질 수도 있잖아.{/cps}"
-    return
+    jump free_talk
 
 label ending_yuki:
     show yuki love
@@ -36,12 +36,12 @@ label ending_yuki:
 label event_mina_1:
     show mina happy
     mina "{cps=35}우와! 대화 진짜 재밌다~ 더 해보자!{/cps}"
-    return
+    jump free_talk
 
 label event_mina_2:
     show mina shy
     mina "{cps=35}이런 분위기 너무 좋아~ 꺄르르{/cps}"
-    return
+    jump free_talk
 
 label ending_mina:
     show mina love
