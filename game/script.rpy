@@ -4,10 +4,7 @@
 # 게임 시작
 # ----------------------------------
 label start:
-
     show screen top_menu
-
-    # 이름이 이미 있으면 입력 건너뛰기
     if persistent.player_name and persistent.player_name != "플레이어":
         jump skip_name
     else:
@@ -17,16 +14,12 @@ label start:
         jump skip_name
 
 label skip_name:
-
     if persistent.current_character:
         $ current_character = persistent.current_character
         jump start_talk
     else:
         jump choose_character
 
-# ----------------------------------
-# 캐릭터 선택
-# ----------------------------------
 label choose_character:
     scene bg classroom
 
@@ -65,43 +58,34 @@ label choose_character:
 label change_name:
     hide screen config_menu
     $ new_name = renpy.input("새 이름을 입력하세요:").strip()
-
     if new_name != "":
         $ persistent.player_name = new_name
-
     "이름이 변경되었습니다."
-
     jump free_talk
 
 # ----------------------------------
 # 첫 대사
 # ----------------------------------
 label start_talk:
-
     show screen love_meter
-
     if current_character == "haru":
         scene bg classroom
         show haru normal at center
         haru "{cps=35}어… 안녕! 오늘은 무슨 얘기하고 싶어?{/cps}"
-
     elif current_character == "yuki":
         scene bg classroom
         show yuki normal at center
         yuki "{cps=35}왔어? …뭐, 얘기 정도는 들어줄게.{/cps}"
-
     elif current_character == "mina":
         scene bg classroom
         show mina normal at center
         mina "{cps=35}오! 드디어 왔네~ 뭐 물어볼 거 있어~?{/cps}"
-
     jump free_talk
 
 # ----------------------------------
 # 대화 루프
 # ----------------------------------
 label free_talk:
-
     # 플레이어 입력
     $ player_text = renpy.input(f"{persistent.player_name}:").strip()
 
@@ -134,7 +118,7 @@ label free_talk:
     # 호감도 적용
     $ apply_love_change(love_delta)
 
-    # 표정·배경 결정 (동적 처리)
+    # 표정·배경 결정
     if current_character == "haru":
         $ love_val = persistent.love_haru
     elif current_character == "yuki":
