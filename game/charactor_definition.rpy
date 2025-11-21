@@ -1,10 +1,13 @@
-# ----------------------------------
+# 플레이어 이름 입력
+default persistent.player_name = "플레이어"
+
+# 현재 선택된 캐릭터
+default persistent.current_character = None
+
 # 3명의 캐릭터 정보
-# ----------------------------------
 define haru = Character("하루", color="#ffb7c5")
 define yuki = Character("유키", color="#b7d9ff")
 define mina = Character("미나", color="#ffd38c")
-
 
 # 캐릭터별 저장 변수
 default persistent.love_haru = 30
@@ -80,7 +83,6 @@ default system_prompt_mina = """
 """
 
 # --- 캐릭터 이미지 (표정 여러 개) ---
-
 image haru normal = "images/haru/normal.png"
 image haru happy = "images/haru/happy.png"
 image haru shy = "images/haru/shy.png"
@@ -99,6 +101,7 @@ image mina shy = "images/mina/shy.png"
 image mina angry = "images/mina/angry.png"
 image mina love = "images/mina/love.png"
 
+# --- 배경 이미지 ---
 image bg classroom = "images/background/classroom.jpg"
 image bg park = "images/background/park.jpg"
 image bg night = "images/background/night.jpg"

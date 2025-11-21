@@ -1,0 +1,51 @@
+init python:
+    def apply_love_change(delta):
+        if delta is None:
+            return
+
+        if current_character == "haru":
+            persistent.love_haru = max(0, min(100, persistent.love_haru + delta))
+        elif current_character == "yuki":
+            persistent.love_yuki = max(0, min(100, persistent.love_yuki + delta))
+        elif current_character == "mina":
+            persistent.love_mina = max(0, min(100, persistent.love_mina + delta))
+
+    def get_character_expression(love):
+        if love < 30:
+            return "angry"
+        elif love < 50:
+            return "normal"
+        elif love < 70:
+            return "happy"
+        elif love < 90:
+            return "shy"
+        else:
+            return "love"
+
+    def get_background(love):
+        if love < 40:
+            return "classroom"
+        elif love < 70:
+            return "park"
+        elif love < 90:
+            return "night"
+        else:
+            return "rooftop"
+
+    def check_event(character):
+        love = getattr(persistent, f"love_{character}")
+        talk = getattr(persistent, f"talk_{character}")
+
+        # 이벤트 1
+        if talk >= 5 and love >= 40:
+            return f"event_{character}_1"
+
+        # 이벤트 2
+        if talk >= 10 and love >= 60:
+            return f"event_{character}_2"
+
+        # 엔딩
+        if talk >= 20 and love >= 90:
+            return f"ending_{character}"
+
+        return None
