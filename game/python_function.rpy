@@ -56,3 +56,45 @@ init python:
         if talk >= 20 and love >= 90:
             return f"ending_{character}"
         return None
+    def split_sentences(text):
+        sentences = []
+        current = []
+        end_marks = {'.', '!', '?'}
+
+        i = 0
+        n = len(text)
+
+        while i < n:
+            ch = text[i]
+            current.append(ch)
+
+            # 문장 끝 문장부호 시작
+            if ch in end_marks:
+                # 뒤에 동일한 종류의 문장부호가 연속되면 하나로 묶기
+                j = i + 1
+                while j < n and text[j] in end_marks:
+                    current.append(text[j])
+                    j += 1
+
+                # 문장 종료
+                sentence = ''.join(current).strip()
+                if sentence:
+                    sentences.append(sentence)
+                current = []
+
+                i = j
+                continue
+
+            i += 1
+
+        # 마지막 문장 (문장부호 없이 끝났을 때)
+        if current:
+            sentence = ''.join(current).strip()
+            if sentence:
+                sentences.append(sentence)
+
+        return sentences
+
+
+
+

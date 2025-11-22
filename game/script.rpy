@@ -1,6 +1,5 @@
 ﻿# script.rpy
-python:
-    import re
+
 # ----------------------------------
 # 게임 시작
 # ----------------------------------
@@ -147,7 +146,7 @@ label free_talk:
 
     # 대사 출력
     python:
-        sentences = [s.strip() for s in re.findall(r'[^.!?]+[.!?]*', ai_reply) if s.strip()]
+        sentences = [s for s in split_sentences(ai_reply)]
         for s in sentences:
             if current_character == "haru":
                 renpy.say(haru, "{cps=35}" + s + "{/cps}")
