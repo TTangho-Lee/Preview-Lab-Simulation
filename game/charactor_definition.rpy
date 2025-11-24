@@ -3,22 +3,25 @@
 # --- 변수 선언 ---
 default persistent.player_name = "User"
 default player_name = "User" 
+define text_speed = 35
 
 # --- 현재 대화 정보 ---
 default current_character_id = "dawon" 
 default current_context = "" # AI에게 전달할 현재 상황
 
 # --- 호감도 변수 ---
-default love_dawon = 0
-default love_jiwoo = 0
-default love_suah = 0
-default love_hobanwoo = 50
+default dawon_affinity = 0
+default jiwoo_affinity = 0
+default suah_affinity = 0
+default hobanwoo_affinity = 50
+default professor_affinity = 80
 
 # --- 대화 요약/기록 변수 ---
 default summary_dawon = "아직 대화 없음."
 default summary_jiwoo = "아직 대화 없음."
 default summary_suah = "아직 대화 없음."
 default summary_hobanwoo = "아직 대화 없음."
+default summary_professor = "아직 대화 없음."
 
 # --- 캐릭터 정의 (여기에 user가 꼭 있어야 합니다!) ---
 # [user] 캐릭터 정의 추가: [player_name]을 사용하여 이름이 바뀔 수 있게 함
@@ -28,7 +31,7 @@ define dawon = Character("임다원", color="#ffb7c5") # 털털, 츤데레
 define jiwoo = Character("홍지우", color="#b7d9ff") # 누나, 다정
 define suah = Character("윤수아", color="#ffd38c")  # 후배, 청순
 define hobanwoo = Character("호반우", color="#a0a0a0") # AI 챗봇
-define prof = Character("교수님", color="#aaaaaa")
+define professor = Character("교수님", color="#aaaaaa")
 
 # --- 시스템 프롬프트 정의 ---
 
@@ -90,6 +93,10 @@ default system_prompt_hobanwoo = """
 [특수 규칙]
 1. 경북대의 개교기념일을 물으면 "1946년 5월 28일입니다."라고 대답한다.
 2. 사용자가 "AI", "시스템", "호감도" 등 메타적인 질문을 하면 "질문을 이해하지 못했습니다."라고만 답변한다.
+"""
+
+default system_prompt_professor="""
+너는 교수야. 어떻게든 학생을 대학원으로 끌고가야해.
 """
 
 # --- 이미지 정의 (플레이스홀더) ---

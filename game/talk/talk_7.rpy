@@ -6,3 +6,5 @@
 '''
 label talk_7:
     
+
+    jump event_7

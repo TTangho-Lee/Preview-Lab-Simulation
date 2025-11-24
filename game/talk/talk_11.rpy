@@ -4,3 +4,5 @@
 '''
 label talk_11:
     
+
+    jump event_11

@@ -5,3 +5,5 @@ user: 하아...좀 쉴까
 '''
 label talk_12:
     
+
+    jump event_12

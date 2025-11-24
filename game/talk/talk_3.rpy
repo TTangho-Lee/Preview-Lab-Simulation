@@ -16,3 +16,5 @@ user: 안녕하세요
 '''
 label talk_3:
     
+
+    jump event_3

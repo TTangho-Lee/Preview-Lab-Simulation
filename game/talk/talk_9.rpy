@@ -5,3 +5,5 @@ user: 도대체 이게 무슨 일이야...
 '''
 label talk_9:
     
+
+    jump event_9

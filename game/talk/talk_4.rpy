@@ -11,3 +11,5 @@
 '''
 label talk_4:
     
+
+    jump event_4

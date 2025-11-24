@@ -6,3 +6,6 @@
 user: 아 맞다, 논문 제출! 프린트한건 이미 드렸고..~
 '''
 label talk_10:
+
+
+    jump event_10

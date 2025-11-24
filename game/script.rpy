@@ -15,69 +15,13 @@ label start:
 
 
 
-    jump talk_1
-    jump event_1
-    
-    jump talk_2
-    jump event_2
 
-    jump talk_3
-    jump event_3
-
-    jump talk_4
-    jump event_4
-
-    jump talk_5
-    jump event_5
-
-    jump talk_6
-    jump event_6
-
-    jump talk_7
-    jump event_7
-
-    jump talk_8
-    jump event_8
-
-    jump talk_9
-    jump event_9
-
-    jump talk_10
     jump event_10
 
-    jump talk_11
-    jump event_11
-
-    jump talk_12
-    jump event_12
-
-    jump endding
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # 0. 이름 입력
+    '''# 0. 이름 입력
     $ player_name = renpy.input("당신의 이름을 입력하세요:", default="user").strip()
     if player_name == "":
         $ player_name = "user"
@@ -500,4 +444,4 @@ transform vshake:
     linear 0.1 yoffset 10
     linear 0.1 yoffset -10
     linear 0.1 yoffset 10
-    linear 0.1 yoffset 0
+    linear 0.1 yoffset 0'''

@@ -1,8 +1,13 @@
-'''
-<대화 6>
-선택지로 [인쇄한다]
-1.네
-2.네
-'''
-
 label event_6:
+
+    "{cps=[text_speed]}[[인쇄한다]{/cps}"
+
+    menu:
+        "네":
+            jump talk_7
+        "네":
+            jump talk_7
+
+            
+
+

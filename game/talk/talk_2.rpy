@@ -22,3 +22,5 @@ user: 아, 그래?
 '''
 label talk_2:
     
+
+    jump event_2

@@ -15,3 +15,5 @@ user: ..?
 '''
 label talk_6:
     
+
+    jump event_6

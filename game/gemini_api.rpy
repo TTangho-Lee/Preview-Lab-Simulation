@@ -35,14 +35,17 @@ Player Said:
 
 Assistant Response Instruction:
 1. 반드시 아래 포맷을 지켜라.
+2. Current Affinity에 적절한 말투를 사용하여라. 0에 가까우면 딱딱하게, 100에 가까우면 부드럽게
 2. 'new_affinity'는 대화 결과에 따라 현재 호감도에 더할 값(정수)이다. (-5 ~ +5)
 3. 'is_ai_suspected': 만약 플레이어가 AI 여부를 의심하면 'true', 아니면 'false'로 적어라.
+4. 'goal_achievement': 만약 지금 할 말이 현재 상황/목표를 충족하면 'true', 아니면 'false'로 적어라.
 
 ---
 assistant_reply: <답변 내용>
 updated_summary: <요약>
 new_affinity: <숫자>
 is_ai_suspected: <true/false>
+goal_achievement: <true/false>
 ---
 """}
                     ]
@@ -66,6 +69,7 @@ is_ai_suspected: <true/false>
             updated_summary = summary
             affinity_delta = 0
             is_suspected = False
+            goal_achievement = False
 
             for line in text.split("\n"):
                 if line.startswith("assistant_reply:"):
@@ -81,11 +85,13 @@ is_ai_suspected: <true/false>
                     val = line.replace("is_ai_suspected:", "").strip().lower()
                     if val == "true":
                         is_suspected = True
+                elif line.startswith("goal_achievement:"):
+                    val = line.replace("goal_achievement:", "").strip().lower()
+                    if val == "true":
+                        goal_achievement = True
 
-            # 최종 호감도 계산
-            final_affinity = max(0, min(100, current_affinity + affinity_delta))
 
-            return reply, updated_summary, final_affinity, is_suspected
+            return reply, updated_summary, affinity_delta, is_suspected, goal_achievement
 
         except Exception as e:
             print(f"Gemini Error: {e}")
