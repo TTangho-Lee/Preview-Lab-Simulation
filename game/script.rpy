@@ -1,4 +1,4 @@
-# script.rpy
+﻿# script.rpy
 
 # --- 초기화 ---
 init python:
@@ -10,6 +10,73 @@ init python:
 
 # --- 게임 시작 ---
 label start:
+
+
+
+
+
+    jump talk_1
+    jump event_1
+    
+    jump talk_2
+    jump event_2
+
+    jump talk_3
+    jump event_3
+
+    jump talk_4
+    jump event_4
+
+    jump talk_5
+    jump event_5
+
+    jump talk_6
+    jump event_6
+
+    jump talk_7
+    jump event_7
+
+    jump talk_8
+    jump event_8
+
+    jump talk_9
+    jump event_9
+
+    jump talk_10
+    jump event_10
+
+    jump talk_11
+    jump event_11
+
+    jump talk_12
+    jump event_12
+
+    jump endding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # 0. 이름 입력
     $ player_name = renpy.input("당신의 이름을 입력하세요:", default="user").strip()
     if player_name == "":
@@ -74,7 +141,7 @@ label start:
     $ send_notification("'임다원'의 호감도가 추가되었습니다.")
     $ love_dawon = 30
     
-    user "아... 미안. 내가 잠이 덜 깼나 봐."
+    user "{cps=35}아... 미안. 내가 잠이 덜 깼나 봐.{/cps}"
     user "(핸드폰을 힐끔 보니, 임다원의 이름 옆에 붉은색 바가 생겼다. 이게 호감도인가?)"
     
     dawon "그나저나 교수님이 써오라 하신 논문은 다 썼냐? 저번 주부터 막막해하더니."

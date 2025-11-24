@@ -106,5 +106,5 @@ image jiwoo normal = ConditionSwitch(
     "True", "images/jiwoo/normal.png"
 )
 image suah normal = ConditionSwitch(
-    "True", "images/suah/normal.jpg"
+    "True", "images/suah/normal.png"
 )
