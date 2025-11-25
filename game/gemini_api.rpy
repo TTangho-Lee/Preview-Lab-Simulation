@@ -4,7 +4,7 @@ init python:
     import requests
     import json
     # 🚨 API 키 (보안 주의)
-    GEMINI_API_KEY = "AIzaSyBoyA-egVFZWQBel2p4l1KTom4NhkhAmC4" 
+    GEMINI_API_KEY = "AIzaSyB5gaUedJPij4xsf2Dy0-xJTL1ukw4aFLo" 
     GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
 
     def gemini_generate_response(system_prompt, summary, user_msg, current_affinity, player_name, context_instruction=None):
@@ -46,7 +46,7 @@ Assistant Response Instruction:
 ---
 assistant_reply: <답변 내용>
 updated_summary: <요약>
-affinity_delta: <숫자>
+affinity_delta: <-3 ~ +3 사이의 숫자>
 is_ai_suspected: <true/false>
 goal_achievement: <true/false>
 ---

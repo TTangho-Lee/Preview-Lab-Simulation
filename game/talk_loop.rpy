@@ -62,6 +62,9 @@ init python:
                 elif charactor=="professor":
                     renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
                 
+            
+            if affinity_delta>=4 or affinity_delta<=-4:
+                affinity_delta=0
 
             if charactor=="dawon":
                 apply_affinity_change("dawon", affinity_delta)
