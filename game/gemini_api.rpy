@@ -12,7 +12,8 @@ init python:
         # 추가 지시사항(스토리 상황)이 있으면 포함
         extra_inst = ""
         if context_instruction:
-            extra_inst = f"\n[현재 상황/목표]: {context_instruction}\n"
+            current_condition = f"\n[현재 상황]: {context_instruction.split("/")[0]}\n"
+            goal = f"\n[목표 상황]: {context_instruction.split("/")[1]}\n"
 
         payload = {
             "contents": [
@@ -22,7 +23,8 @@ init python:
                         {"text": f"""
 System Instruction:
 {system_prompt}
-{extra_inst}
+{current_condition}
+{goal}
 
 Previous Summary:
 {summary}
@@ -35,10 +37,11 @@ Player Said:
 
 Assistant Response Instruction:
 1. 반드시 아래 포맷을 지켜라.
-2. Current Affinity에 적절한 말투를 사용하여라. 0에 가까우면 딱딱하게, 100에 가까우면 부드럽게
-2. 'new_affinity'는 대화 결과에 따라 현재 호감도에 더할 값(정수)이다. (-5 ~ +5)
-3. 'is_ai_suspected': 만약 플레이어가 AI 여부를 의심하면 'true', 아니면 'false'로 적어라.
-4. 'goal_achievement': 만약 지금 할 말이 현재 상황/목표를 충족하면 'true', 아니면 'false'로 적어라.
+2. Current Affinity에 적절한 말투를 사용하여라. 0에 가까우면 딱딱하게, 100에 가까우면 부드럽게.
+3. [현재 상황]에 적합한 말로 대화를 진행하여라.
+4. 'new_affinity'는 대화 결과에 따라 현재 호감도에 더할 값(정수)이다. (-5 ~ +5)
+5. 'is_ai_suspected': 만약 플레이어가 AI 여부를 의심하면 'true', 아니면 'false'로 적어라.
+6. 'goal_achievement': 만약 대화내용이 [목표]를 충족하면 'true', 아니면 'false'로 적어라.
 
 ---
 assistant_reply: <답변 내용>
