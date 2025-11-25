@@ -2,17 +2,17 @@ label event_7:
 
     menu:
         "윤수아의 손을 잡는다":
-            $ apply_affinity_change("suah", 30)
+            $ apply_affinity_change("suah", 5)
             $ typing(suah, "......")
             jump talk_8
 
         "홍지우의 손을 잡는다":
-            $ apply_affinity_change("jiwoo", 30)
+            $ apply_affinity_change("jiwoo", 5)
             $ typing(jiwoo, ".......")
             jump talk_8
 
         "임다원의 손을 잡는다":
-            $ apply_affinity_change("dawon", 30)
+            $ apply_affinity_change("dawon", 5)
             $ typing(dawon, "......")
             jump talk_8
 

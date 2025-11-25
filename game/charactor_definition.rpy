@@ -128,9 +128,11 @@ default system_prompt_professor="""
 """
 
 # --- 이미지 정의 (플레이스홀더) ---
-image bg lab = "images/background/classroom.jpg"
-image bg restaurant = "images/backgroundrooftop.jpg"
-image bg street = "images/background/park.jpg"
+image bg lab = "images/background/lab.png"
+image bg restaurant = "images/background/restaurant.png"
+image bg home = "images/background/home.png"
+image bg sunset = "images/background/sunset.png"
+image bg truck = "images/background/truck.png"
 image bg black = "#000000"
 
 # 이미지가 없을 경우를 대비해 Solid 색상으로 대체 (나중에 파일 넣으면 수정 필요)

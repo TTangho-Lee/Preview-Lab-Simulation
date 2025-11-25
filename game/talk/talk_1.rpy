@@ -5,7 +5,12 @@ label talk_1:
     "저녁 수업을 마치고 환승연애를 보며 횡단보도를 건너게 된다."
     play sound "audio/truck_horn.ogg"
     with vpunch
+    # 💥 순간적인 섬광(흰색)을 사용하거나, 트랜지션 시간을 0으로 설정하여 충돌 연출
+    scene bg truck with Dissolve(0.1) 
+    
     "하지만 빠르게 달려오는 대형트럭을 보지 못한 채 그대로 치인다."
+    
+    scene bg black with fade # 잠시 블랙아웃 (의식 상실)
     
 
     # --- 2. 깨어남 씬 ---

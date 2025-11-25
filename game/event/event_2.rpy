@@ -1,7 +1,7 @@
 label event_2:
     jump talk_3
-
-    '''menu:
+    scene bg lab
+    menu:
         "먹는다":
             # 초기 대사
             $ apply_affinity_change("suah", 4)
@@ -84,4 +84,3 @@ label event_2:
             "{cps=[text_speed]}둘은 조금 어색한 분위기 속에서 자리를 떴다.{/cps}"
 
             jump talk_3
-'''
