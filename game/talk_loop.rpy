@@ -1,8 +1,9 @@
 init python:
     def talk_loop(charactor,finish_condition):
+        global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, hobanwoo_affinity, professor_affinity
+        global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_hobanwoo, system_prompt_professor
         summary = []
         is_sus = False
-        context_instruction = finish_condition
 
         if charactor=="dawon":
             current_affinity = dawon_affinity
@@ -30,7 +31,7 @@ init python:
             summary_text = "\n".join(summary) if summary else ""
 
             reply, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
-                sys_prompt, summary, user_msg, current_affinity, player_name, context_instruction
+                sys_prompt, summary, user_msg, current_affinity, player_name, finish_condition
             )
 
             summary.append(f"user: {user_msg}")

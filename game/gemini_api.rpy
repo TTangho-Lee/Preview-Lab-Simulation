@@ -4,7 +4,7 @@ init python:
     import requests
     import json
     # 🚨 API 키 (보안 주의)
-    GEMINI_API_KEY = "AIzaSyBkdW7VhfUjVolfR_ceNsg1hO4W6HjkNfE" 
+    GEMINI_API_KEY = "AIzaSyBoyA-egVFZWQBel2p4l1KTom4NhkhAmC4" 
     GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
 
     def gemini_generate_response(system_prompt, summary, user_msg, current_affinity, player_name, context_instruction=None):
@@ -37,12 +37,12 @@ Player Said:
 
 Assistant Response Instruction:
 1. 반드시 아래 포맷을 지켜라.
-2. Current Affinity에 적절한 말투를 사용하여라. 0에 가까우면 딱딱하게, 100에 가까우면 부드럽게.
+2. Current Affinity에 적절한 말투를 사용하여라. 0에 가까우면 딱딱하고 퉁명스럽게, 100에 가까우면 부드럽고 친절하게.
 3. [현재 상황]에 적합한 말로 대화를 진행하여라.
 4. 'new_affinity'는 대화 결과에 따라 현재 호감도에 더할 값(정수)이다. (-5 ~ +5)
 5. 'is_ai_suspected': 만약 플레이어가 AI 여부를 의심하면 'true', 아니면 'false'로 적어라.
 6. 'goal_achievement': 만약 대화내용이 [목표]를 충족하면 'true', 아니면 'false'로 적어라.
-
+7. 무조건 다음의 형태에 맞춰서 답변을 만들어라
 ---
 assistant_reply: <답변 내용>
 updated_summary: <요약>
@@ -63,7 +63,7 @@ goal_achievement: <true/false>
             result = response.json()
 
             if "candidates" not in result:
-                return "...", summary, current_affinity, False
+                return "...", summary, current_affinity, False, False
 
             text = result["candidates"][0]["content"]["parts"][0]["text"]
 
@@ -98,4 +98,4 @@ goal_achievement: <true/false>
 
         except Exception as e:
             print(f"Gemini Error: {e}")
-            return "지금은 대화가 어렵습니다.", summary, current_affinity, False
+            return "지금은 대화가 어렵습니다.", summary, current_affinity, False, False
