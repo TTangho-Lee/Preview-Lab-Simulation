@@ -13,13 +13,13 @@ label talk_10:
     
     # --- 2. KNUAI 알림 ---
     "띠링"
-    $ send_notification("[메시지] 새로운 메시지가 도착하였습니다.") 
+    $ send_notification("[[메시지] 새로운 메시지가 도착하였습니다.") 
     
     window auto
-    "[논문 제출] 제출 기한이 0일 남았습니다." 
+    "[[논문 제출] 제출 기한이 0일 남았습니다." 
     window hide
     
-    user_char "아 맞다, 논문 제출!"
-    user_char "프린트한 건 이미 드렸고...~" 
+    user "아 맞다, 논문 제출!"
+    user "프린트한 건 이미 드렸고...~" 
     
     jump event_11

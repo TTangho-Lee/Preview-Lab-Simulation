@@ -24,7 +24,7 @@ label talk_2:
     # 임다원 대화 종료 후
     
     # --- 1. 논문 확인 및 호감도 변화 ---
-    "user가 컴퓨터를 켜서 ‘논문‘ 이라고 적힌 폴더를 열어본다."
+    "[user_iga] 컴퓨터를 켜서 ‘논문‘ 이라고 적힌 폴더를 열어본다."
     
     window auto
     "주제 : “AI 생성물 탐지를 위한 특징학습(Self-supervised Representation Learning) 기법 고도화”"
@@ -53,7 +53,7 @@ label talk_2:
     
     # --- 3. 윤수아 등장 ---
     "연구실의 문이 열리고 꽃향기를 풍기는 생머리 여자 한 명이 들어온다."
-    
+
     # 윤수아 이미지 표시 (suah 캐릭터는 charactor_definition.rpy에 정의되어 있음)
     show suah normal at right with moveinright
     
@@ -63,6 +63,7 @@ label talk_2:
     user "쟤는 누구야...?"
     
     dawon "너 이 정도면 기억상실 아니야? 수아잖아, 윤수아."
+    $ apply_affinity_change("suah",30)
     
     user "아, 그래?"
     

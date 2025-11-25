@@ -25,7 +25,11 @@ default summary_professor = "아직 대화 없음."
 
 # --- 캐릭터 정의 (여기에 user가 꼭 있어야 합니다!) ---
 # [user] 캐릭터 정의 추가: [player_name]을 사용하여 이름이 바뀔 수 있게 함
-define user = Character("[player_name]", color="#ffffff") 
+define user = Character("[player_name]", color="#ffffff")
+define user_eunneun = Character("[player_name][eunneun(player_name)]", color="#ffffff")
+define user_iga = Character("[player_name][iga(player_name)]", color="#ffffff")
+define user_eulreul = Character("[player_name][eulreul(player_name)]", color="#ffffff")
+
 
 define dawon = Character("임다원", color="#ffb7c5") # 털털, 츤데레
 define jiwoo = Character("홍지우", color="#b7d9ff") # 누나, 다정

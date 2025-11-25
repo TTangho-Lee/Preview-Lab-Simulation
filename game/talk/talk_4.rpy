@@ -20,8 +20,8 @@ label talk_4:
     "‘띠링’"
     
     # 알림 (additional_ui.rpy의 send_notification 함수 활용)
-    $ send_notification("[메시지] 새로운 메시지가 도착하였습니다.")
-    $ send_notification("[논문 제출] 제출 기한이 1일 남았습니다.")
+    $ send_notification("[[메시지] 새로운 메시지가 도착하였습니다.")
+    $ send_notification("[[논문 제출] 제출 기한이 1일 남았습니다.")
     
     # 독백
     user "구라, 논문 제출이 하루 남았다고?"
@@ -33,12 +33,12 @@ label talk_4:
     
     show screen phone_overlay
     
-    "왜인지 **[탈퇴하기]** 버튼이 유난히 눈에 띄었다."
+    "왜인지 **[[탈퇴하기]** 버튼이 유난히 눈에 띄었다."
     
     # (additional_ui.rpy에 정의된 phone_overlay 화면에 탈퇴하기 버튼이 이미 존재한다고 가정)
     
     # [탈퇴하기] 버튼을 누르는 연출
-    "**[탈퇴하기]** 버튼을 누르자 **“정말로 탈퇴하시겠습니까?”** 라는 문구가 뜬다."
+    "**[[탈퇴하기]** 버튼을 누르자 **“정말로 탈퇴하시겠습니까?”** 라는 문구가 뜬다."
     
     # 다음 이벤트로 점프
     jump event_4

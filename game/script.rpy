@@ -11,7 +11,12 @@ init python:
 # --- 게임 시작 ---
 label start:
 
-
+    $ player_name = renpy.input("당신의 이름을 입력하세요:", default="user").strip()
+    if player_name == "":
+        $ player_name = "플레이어"
+    
+    # 폰 기능 활성화
+    show screen input_listener
 
 
 

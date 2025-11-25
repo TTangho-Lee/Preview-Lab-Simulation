@@ -76,15 +76,15 @@ label event_12:
             
             # 호반우 호감도 급락 연출
             $ apply_affinity_change("hobanwoo", -10)
-            $ send_notification("[KNUAI] 호반우 님의 호감도가 –10 하락했습니다.")
+            $ send_notification("[[KNUAI] 호반우 님의 호감도가 –10 하락했습니다.")
             $ apply_affinity_change("hobanwoo", -23)
-            $ send_notification("[KNUAI] 호반우 님의 호감도가 –23 하락했습니다.")
+            $ send_notification("[[KNUAI] 호반우 님의 호감도가 –23 하락했습니다.")
             $ apply_affinity_change("hobanwoo", -42)
-            $ send_notification("[KNUAI] 호반우 님의 호감도가 –42 하락했습니다.")
+            $ send_notification("[[KNUAI] 호반우 님의 호감도가 –42 하락했습니다.")
             $ apply_affinity_change("hobanwoo", -68)
-            $ send_notification("[KNUAI] 호반우 님의 호감도가 –68 하락했습니다.")
+            $ send_notification("[[KNUAI] 호반우 님의 호감도가 –68 하락했습니다.")
             $ apply_affinity_change("hobanwoo", -112)
-            $ send_notification("[KNUAI] 호반우 님의 호감도가 –112 하락했습니다.")
+            $ send_notification("[[KNUAI] 호반우 님의 호감도가 –112 하락했습니다.")
             user "이게 뭐야?.. 대체"
             
             # 배드 엔딩으로 점프 (사용자 요청: event_12 다음은 endding)

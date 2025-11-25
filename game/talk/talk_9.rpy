@@ -13,7 +13,7 @@ label talk_9:
     "..."
     
     scene bg home with dissolve # 집 배경 (새로운 이미지 'bg home'이 필요합니다)
-    user_char "도대체 이게 무슨 일이야..." 
+    user "도대체 이게 무슨 일이야..." 
 
     # 다음 이벤트로 점프
     jump event_10

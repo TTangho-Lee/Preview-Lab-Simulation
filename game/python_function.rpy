@@ -54,5 +54,27 @@ init python:
         return sentences
 
 
+    def eunneun(name):
+        # 받침이 있으면 "은", 없으면 "는"
+        return "은" if is_jong(name) else "는"
+
+    def iga(name):
+        # 받침이 있으면 "이", 없으면 "가"
+        return "이" if is_jong(name) else "가"
+    
+    def eulreul(name):
+        # 받침 있으면 '을', 없으면 '를'
+        ch = ord(name[-1]) - 0xAC00
+        jong = ch % 28
+        return "을" if jong != 0 else "를"
+
+    def is_jong(name):
+        # 한글 받침 여부 확인
+        if len(name) == 0:
+            return False
+        ch = ord(name[-1]) - 0xAC00
+        jong = ch % 28
+        return jong != 0
+
 
 
