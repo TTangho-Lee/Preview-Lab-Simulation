@@ -51,19 +51,19 @@ screen phone_overlay():
                         hbox:
                             spacing 10
                             text "임다원" color "#ffffff" size 18 yalign 0.5
-                            bar value love_dawon range 100 xysize (230, 20) style "blood_bar"
+                            bar value dawon_affinity range 100 xysize (230, 20) style "blood_bar"
 
                         # 홍지우
                         hbox:
                             spacing 10
                             text "홍지우" color "#ffffff" size 18 yalign 0.5
-                            bar value love_jiwoo range 100 xysize (230, 20) style "blood_bar"
+                            bar value jiwoo_affinity range 100 xysize (230, 20) style "blood_bar"
 
                         # 윤수아
                         hbox:
                             spacing 10
                             text "윤수아" color "#ffffff" size 18 yalign 0.5
-                            bar value love_suah range 100 xysize (230, 20) style "blood_bar"
+                            bar value suah_affinity range 100 xysize (230, 20) style "blood_bar"
 
                 null height 20
                 
