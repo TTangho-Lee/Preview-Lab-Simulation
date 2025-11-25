@@ -12,8 +12,7 @@ label event_4:
                 # 2차 질문
                 menu:
                     "네":
-                        "{cps=[text_speed]}<knuai : [[메세지] 새로운 메시지가 도착하였습니다.>{/cps}"
-                        "{cps=[text_speed]}@#$$!님의 호감도가 –25 하락했습니다.{/cps}"
+                        $ send_notification("%s님의 호감도가 -25 하락했습니다." % hobanwoo_blind)
 
                         # 호감도 적용
                         $ apply_affinity_change("hobanwoo", -25)

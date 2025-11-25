@@ -22,4 +22,4 @@ label talk_10:
     user "아 맞다, 논문 제출!"
     user "프린트한 건 이미 드렸고...~" 
     
-    jump event_11
+    jump event_10

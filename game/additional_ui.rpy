@@ -93,7 +93,7 @@ screen phone_overlay():
                 # 탈퇴 버튼 (붉게 강조)
                 textbutton "탈퇴하기":
                     # [수정됨] Jump -> Call 로 변경 (끝나면 원래 스토리로 복귀)
-                    action Call("app_leave_event") 
+                    action Return(True)
                     xalign 0.5 
                     text_color "#ff0000" 
                     text_size 28
@@ -123,8 +123,70 @@ screen message_toast(msg):
 
     timer 3.5 action Hide("message_toast")
 
+screen red_notice_popup(messages):
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (30,30,30,30)
+        background "#000c"
+
+        vbox:
+            spacing 10
+
+            # ★ 첫 문장(제목) : 빨간색 + 가운데 정렬
+            text messages[0] color "#FF0000" xalign 0.5 size 32
+
+            # ★ 나머지 문장들 출력
+            for msg in messages[1:]:
+                text msg
+
+    timer 5 action Hide("red_notice_popup")
+
+screen normal_notice_popup(messages):
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (30,30,30,30)
+        background "#000c"
+
+        vbox:
+            spacing 10
+
+            for msg in messages:
+                text msg
+
+    timer 5 action Hide("normal_notice_popup")
+
+screen center_notice_popup(messages):
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (30,30,30,30)
+        background "#000c"
+
+        vbox:
+            spacing 10
+
+            for msg in messages:
+                text msg xalign 0.5 size 32
+
+    timer 5 action Hide("center_notice_popup")
+
 # 알림 호출 함수
 init python:
     def send_notification(msg):
-        # renpy.play("audio/notification.ogg") # 효과음 파일 있으면 주석 해제
+        renpy.play("audio/notification.ogg")
         renpy.show_screen("message_toast", msg=msg)
+
+    def show_red_notice(*msgs):
+        renpy.play("audio/notification.ogg")
+        renpy.show_screen("red_notice_popup", messages=list(msgs))
+
+    def show_normal_notice(*msgs):
+        renpy.show_screen("normal_notice_popup", messages=list(msgs))
+
+    def show_center_notice(*msgs):
+        renpy.show_screen("center_notice_popup", messages=list(msgs))

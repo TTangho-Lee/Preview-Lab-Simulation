@@ -32,9 +32,13 @@ define user_eulreul = Character("[player_name][eulreul(player_name)]", color="#f
 
 
 define dawon = Character("임다원", color="#ffb7c5") # 털털, 츤데레
+define dawon_blind = Character("???", color="#ffb7c5")
 define jiwoo = Character("홍지우", color="#b7d9ff") # 누나, 다정
+define jiwoo_blind = Character("???", color="#b7d9ff")
 define suah = Character("윤수아", color="#ffd38c")  # 후배, 청순
+define suah_blind = Character("???", color="#ffd38c")
 define hobanwoo = Character("호반우", color="#a0a0a0") # AI 챗봇
+define hobanwoo_blind = Character("@#?%&", color="#a0a0a0")
 define professor = Character("교수님", color="#aaaaaa")
 
 # --- 시스템 프롬프트 정의 ---

@@ -1,6 +1,6 @@
 label event_6:
 
-    "{cps=[text_speed]}[[인쇄한다]{/cps}"
+    "[[인쇄한다]"
 
     menu:
         "네":

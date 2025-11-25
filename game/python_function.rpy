@@ -1,4 +1,5 @@
 init python:
+
     def apply_affinity_change(name,delta):
         global dawon_affinity, jiwoo_affinity, suah_affinity, hobanwoo_affinity, professor_affinity
         if delta is None:
@@ -75,6 +76,8 @@ init python:
         ch = ord(name[-1]) - 0xAC00
         jong = ch % 28
         return jong != 0
-
+    
+    def typing(charactor, sentence):
+        renpy.say(charactor, "{cps=[text_speed]}%s{/cps}" % sentence)
 
 

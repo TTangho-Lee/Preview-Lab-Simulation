@@ -16,4 +16,4 @@ label talk_9:
     user "도대체 이게 무슨 일이야..." 
 
     # 다음 이벤트로 점프
-    jump event_10
+    jump event_9
