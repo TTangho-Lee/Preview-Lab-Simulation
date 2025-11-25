@@ -158,7 +158,7 @@ label talk_1:
     "일단 누르고 보는 [player_name], 버튼을 클릭하자 길다란 막대의 모습이 보였다."
     
     # 호감도 바 화면 띄우기
-    show screen affinity_bar_dawon
+    show screen left_bar
     
     "붉게 빛나는 하트는 막대의 정중앙에 놓여져있었다."
     
@@ -167,7 +167,7 @@ label talk_1:
     "검정색 \t\t (그라데이션) \t\t 씨뻘건색"
     
     pause 3.0
-    hide screen affinity_bar_dawon
+    hide screen left_bar
     
     # --- 6. 논문 대화 ---
     dawon "너 교수님이 써오라 하신 논문, 어떻게 돼 가는데? 저번 주부터 막막해하더니."
