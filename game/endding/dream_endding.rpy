@@ -1,4 +1,7 @@
-label dream_endding_1:
+# 고백 거절 시의 엔딩
+
+label dream_ending_1:
+    scene black with fade
     "끼익…."
 
     $ typing(real_student_1, "또 자고 있어요.")
@@ -15,7 +18,10 @@ label dream_endding_1:
     $ typing(real_student_2, "그래서 저 표정인가요.")
     $ typing(real_professor, "깨우지 마라.")
 
-label dream_endding_2:
+    return
+
+label dream_ending_2:
+    scene black with fade
     "끼익…."
 
     $ typing(real_student_1, "교수님, 또 여기서 자고 있어요.")
@@ -37,15 +43,18 @@ label dream_endding_2:
     $ typing(real_professor, "깨우지 마. 계속 자게 둬라.")
     $ typing(real_professor, "…적어도 꿈에서는 누군가와 잘 지내고 있을 테니까.")
 
-label dream_endding_3:
+    return
+
+label dream_ending_3:
+    scene black with fade
     "끼이익…."
     "누군가 문을 밀어 연다. 차갑고 건조한 공기가 방 안으로 스며든다."
 
     $ typing(real_student_1, "교수님… 저 사람 또 책상에 엎드려 자고 있어요.")
-    "학생1의 목소리가 무표정하게 뚝뚝 떨어진다."
+    "[real_student_1]의 목소리가 무표정하게 뚝뚝 떨어진다."
 
     $ typing(real_student_2, "근데 왜 저렇게… 웃고 있어요? 진짜 소름 돋는데.")
-    "잠든 플레이어는 여전히 옅은 미소를 머금고 있다."
+    "잠든 [user_eunneun]. 여전히 옅은 미소를 머금고 있다."
 
     $ typing(real_professor, "건들지 마. 깨우지도 말고.")
     $ typing(real_professor, "…꿈이 아주 달콤한 모양이군.")
@@ -57,5 +66,7 @@ label dream_endding_3:
     $ typing(real_professor, "그래. 꿈에서라도 만족하면… 그걸로 된 거겠지.")
     $ typing(real_professor, "현실에서는 아무것도 이루지 못했으니까.")
 
-    "세 사람의 시선이 잠든 플레이어 위로 조용히 내려앉는다."
-    "현실의 형광등은 참혹할 만큼 밝다. 그리고 플레이어는 그 잔혹한 밝음조차 모른 채, 계속 웃고만 있다."
+    "세 사람의 시선이 잠든 [user] 위로 조용히 내려앉는다."
+    "현실의 형광등은 참혹할 만큼 밝다. 그리고 [user_eunneun] 그 잔혹한 밝음조차 모른 채, 계속 웃고만 있다."
+
+    return

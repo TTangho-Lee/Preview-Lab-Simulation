@@ -87,7 +87,7 @@ label event_2:
             jump talk_3
 '''
 label event_2:
-    jump talk_6
+    jump talk_3
     menu:
         "먹는다":
             # --- 1. 식사 수락 및 이동 ---

@@ -41,6 +41,13 @@ define hobanwoo = Character("호반우", color="#a0a0a0") # AI 챗봇
 define hobanwoo_blind = Character("@#?%&", color="#a0a0a0")
 define professor = Character("교수님", color="#aaaaaa")
 
+define real_student_1 = Character("동기 A", color="#6b6b6b")
+define real_student_2 = Character("동기 B", color="#5e5e5e")
+define real_professor = Character("교수", color="#55514a")
+
+define researcher_a = Character("연구원 A", color="#4a4a4a")  # 금속성 차가운 회색
+define researcher_b = Character("연구원 B", color="#3f3f46")  # 실험실 LED 같은 푸른 회흑
+
 # --- 시스템 프롬프트 정의 ---
 
 # 1. 임다원
@@ -135,6 +142,7 @@ image bg home = "images/background/home.png"
 image bg sunset = "images/background/sunset.png"
 image bg truck = "images/background/truck.png"
 image bg black = "#000000"
+image bg lab_ending = "images/background/lab_ending.png"
 
 # 이미지가 없을 경우를 대비해 Solid 색상으로 대체 (나중에 파일 넣으면 수정 필요)
 image dawon normal = ConditionSwitch(

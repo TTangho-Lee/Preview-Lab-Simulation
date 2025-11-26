@@ -17,5 +17,4 @@ label event_7:
 
         "아무것도 잡지 않는다":
             $ apply_affinity_change("hobanwoo",-10)
-            $ typing(user, "(이게, 뭐지..?)")
             jump talk_8
