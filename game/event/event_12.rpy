@@ -49,8 +49,10 @@ user: 나는 뭐야...?
 
 '''
 label event_12:
+    scene bg lab
     menu:
         "1. 임다원과 놀자 (호감도작)":
+            show suah smile
             dawon "놀자고? 그래 ✨"
             $ apply_affinity_change("dawon", 20)
             $ send_notification("임다원 호감도 +20")
@@ -58,6 +60,7 @@ label event_12:
             jump free_talk_loop
 
         "2. 홍지우와 놀자 (호감도작)":
+            show jiwoo smile
             jiwoo "같이 놀자구? ㅋㅋㅋ 좋아"
             $ apply_affinity_change("jiwoo", 20)
             $ send_notification("홍지우 호감도 +20")
@@ -65,6 +68,7 @@ label event_12:
             jump free_talk_loop
 
         "3. 윤수아와 놀자 (호감도작)":
+            show suah smile
             suah "정말요? 좋아요! 선배님"
             $ apply_affinity_change("suah", 20)
             $ send_notification("윤수아 호감도 +20")

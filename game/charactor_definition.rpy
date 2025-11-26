@@ -139,9 +139,27 @@ image bg black = "#000000"
 image dawon normal = ConditionSwitch(
     "True", "images/dawon/normal.png"
 )
+image dawon smile = ConditionSwitch(
+    "True", "images/dawon/smile.png"
+)
+image dawon shock = ConditionSwitch(
+    "True", "images/dawon/shock.png"
+)
 image jiwoo normal = ConditionSwitch(
     "True", "images/jiwoo/normal.png"
 )
+image jiwoo shock = ConditionSwitch(
+    "True", "images/dawon/shock.png"
+)
+image jiwoo smile = ConditionSwitch(
+    "True", "images/jiwoo/smile.png"
+)
 image suah normal = ConditionSwitch(
     "True", "images/suah/normal.png"
+)
+image suah smile = ConditionSwitch(
+    "True", "images/suah/smile.png"
+)
+image suah shock = ConditionSwitch(
+    "True", "images/suah/shock.png"
 )
