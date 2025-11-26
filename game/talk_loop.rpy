@@ -1,5 +1,5 @@
 init python:
-    def talk_loop(charactor, finish_condition):
+    def talk_loop(charactor, finish_condition, max_turn=3):
         global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, hobanwoo_affinity, professor_affinity
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_hobanwoo, system_prompt_professor
         
@@ -26,7 +26,7 @@ init python:
 
         while True:
             # [안전장치 1] 10턴이 넘어가면 강제 종료 (무한 루프 방지)
-            if turn_count >= 10:
+            if turn_count >= max_turn+2:
                 return
 
             user_msg = renpy.input(f"{player_name}:").strip()
@@ -40,8 +40,8 @@ init python:
             # [핵심 수정] 3턴 이상 진행되면 종료 유도 프롬프트 추가
             # finish_condition 문자열 뒤에 시스템 메시지를 덧붙여 LLM에게 종료를 압박합니다.
             current_condition = finish_condition
-            if turn_count >= 3:
-                current_condition += f"\n(System Note: 현재 대화가 {turn_count}턴 진행되었습니다. 대화가 마무리되는 분위기라면 반드시 'goal_achievement: true'를 출력하여 대화를 종료하세요.)"
+            if turn_count >= max_turn:
+                current_condition = f"현재 대화가 {turn_count}턴 진행되었다. 대화가 마무리되는 대사를 입력하여라./ 반드시 'goal_achievement: true'를 출력하여 대화를 종료하여라."
 
             summary_text = "\n".join(summary) if summary else ""
 
