@@ -1,5 +1,4 @@
 label event_7:
-
     menu:
         "윤수아의 손을 잡는다":
             $ apply_affinity_change("suah", 5)
