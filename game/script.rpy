@@ -22,5 +22,5 @@ label start:
     # 폰 기능 활성화
     show screen input_listener
 
-    jump ending_choice
+    jump talk_1
     
