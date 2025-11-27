@@ -4,7 +4,7 @@ init python:
     import requests
     import json
     # 🚨 API 키 (보안 주의)
-    GEMINI_API_KEY = "AIzaSyCLJpMCVIUCHkEZo3N1woFTyKR78-y3hXo" 
+    GEMINI_API_KEY = config_api_key 
     GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=" + GEMINI_API_KEY
 
     def gemini_generate_response(system_prompt, summary, user_msg, current_affinity, player_name, context_instruction=None):
