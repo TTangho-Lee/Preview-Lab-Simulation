@@ -82,28 +82,29 @@ init python:
                 apply_affinity_change("dawon", affinity_delta)
                 current_affinity = dawon_affinity
                 for s in sentences:
-                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    # %, [, {, } 기호를 모두 이스케이프 처리하여 오류 방지
+                    safe_s = s.replace("%", "%%").replace("[", "[[").replace("{", "{{").replace("}", "}}")
                     renpy.say(dawon, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "jiwoo":
                 summary.append(f"jiwoo: {reply}")
                 apply_affinity_change("jiwoo", affinity_delta)
                 current_affinity = jiwoo_affinity
                 for s in sentences:
-                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    safe_s = s.replace("%", "%%").replace("[", "[[").replace("{", "{{").replace("}", "}}")
                     renpy.say(jiwoo, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "suah":
                 summary.append(f"suah: {reply}")
                 apply_affinity_change("suah", affinity_delta)
                 current_affinity = suah_affinity
                 for s in sentences:
-                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    safe_s = s.replace("%", "%%").replace("[", "[[").replace("{", "{{").replace("}", "}}")
                     renpy.say(suah, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "professor":
                 summary.append(f"professor: {reply}")
                 apply_affinity_change("professor", affinity_delta)
                 current_affinity = professor_affinity
                 for s in sentences:
-                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    safe_s = s.replace("%", "%%").replace("[", "[[").replace("{", "{{").replace("}", "}}")
                     renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
             
 
