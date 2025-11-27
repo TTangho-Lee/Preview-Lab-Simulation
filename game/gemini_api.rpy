@@ -5,7 +5,7 @@ init python:
     import json
     # 🚨 API 키 (보안 주의)
     GEMINI_API_KEY = "AIzaSyCLJpMCVIUCHkEZo3N1woFTyKR78-y3hXo" 
-    GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
+    GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=" + GEMINI_API_KEY
 
     def gemini_generate_response(system_prompt, summary, user_msg, current_affinity, player_name, context_instruction=None):
         
@@ -65,7 +65,7 @@ goal_achievement: <true/false>
             result = response.json()
 
             if "candidates" not in result:
-                return "...", summary, current_affinity, False, False
+                return "...",charactor_emotion, summary, current_affinity, False, False
 
             text = result["candidates"][0]["content"]["parts"][0]["text"]
 
@@ -103,4 +103,4 @@ goal_achievement: <true/false>
 
         except Exception as e:
             print(f"Gemini Error: {e}")
-            return "지금은 대화가 어렵습니다.", summary, current_affinity, False, False
+            return "지금은 대화가 어렵습니다.",charactor_emotion, summary, current_affinity, False, False

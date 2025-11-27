@@ -1,8 +1,15 @@
 init python:
     def talk_loop(charactor, finish_condition, max_turn=3):
-        global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, hobanwoo_affinity, professor_affinity
-        global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_hobanwoo, system_prompt_professor
-        
+        global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, professor_affinity
+        global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_professor
+        emotion_map = {
+            "normal": "normal",
+            "smile": "smile",
+            "sad": "sad",
+            "shy": "shy",
+            "angry": "angry",
+        }
+        all_emotions = ["normal", "smile", "sad", "shy", "angry"]
         summary = []
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
@@ -17,9 +24,6 @@ init python:
         elif charactor == "suah":
             current_affinity = suah_affinity
             sys_prompt = system_prompt_suah
-        elif charactor == "hobanwoo":
-            current_affinity = hobanwoo_affinity
-            sys_prompt = system_prompt_hobanwoo
         elif charactor == "professor":
             current_affinity = professor_affinity
             sys_prompt = system_prompt_professor
@@ -47,69 +51,64 @@ init python:
 
             # AI 응답 생성
             # finish_condition 대신 수정된 current_condition을 전달합니다.
-            reply, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
+            reply, charactor_emotion, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
                 sys_prompt, summary, user_msg, current_affinity, player_name, current_condition
             )
             reply = reply.replace("{", "{{").replace("}", "}}")
+            sentences=[s for s in split_sentences(reply)]
             # 요약 저장
             summary.append(f"user: {user_msg}")
             
+
+            for emo in all_emotions:
+                renpy.hide("dawon " + emo)
+                renpy.hide("suah " + emo)
+                renpy.hide("jiwoo " + emo)
+                renpy.hide("professor " + emo)
+
+            if charactor_emotion in emotion_map:
+                show_expression = emotion_map[charactor_emotion]
+                if character=="dawon":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.left])
+                elif character=="jiwoo":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.center])
+                elif character=="suah":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.right])
+                elif character=="professor":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.center])
+
             if charactor == "dawon":
                 summary.append(f"dawon: {reply}")
-            elif charactor == "jiwoo":
-                summary.append(f"jiwoo: {reply}")
-            elif charactor == "suah":
-                summary.append(f"suah: {reply}")
-            elif charactor == "hobanwoo":
-                summary.append(f"hobanwoo: {reply}")
-            elif charactor == "professor":
-                summary.append(f"professor: {reply}")
-            
-            # 대사 출력 (기존 로직 유지)
-            sentences = [s for s in split_sentences(reply)]
-            for s in sentences:
-                safe_s = s.replace("{", "{{").replace("}", "}}")
-                if charactor == "dawon":
-                    renpy.say(dawon, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                elif charactor == "jiwoo":
-                    renpy.say(jiwoo, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                elif charactor == "suah":
-                    renpy.say(suah, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                elif charactor == "hobanwoo":
-                    renpy.say(hobanwoo, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                elif charactor == "professor":
-                    renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                
-            # 호감도 변화 제한 및 적용
-            if affinity_delta >= 4 or affinity_delta <= -4:
-                affinity_delta = 0
-
-            expression = "normal" # 기본 표정
-            if affinity_delta > 1:
-                expression = "smile" # 호감도 크게 증가 시 웃는 표정
-            elif affinity_delta < -1:
-                expression = "angry" # 호감도 크게 감소 시 웃는 표정
-            
-            # 캐릭터별 표정 적용 (이미지 태그: "char_id expression")
-            if charactor in ["dawon", "jiwoo", "suah"]: # 이미지가 있는 캐릭터만
-                renpy.show(f"{charactor} {expression}")
-
-            
-            if charactor == "dawon":
                 apply_affinity_change("dawon", affinity_delta)
                 current_affinity = dawon_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(dawon, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "jiwoo":
+                summary.append(f"jiwoo: {reply}")
                 apply_affinity_change("jiwoo", affinity_delta)
                 current_affinity = jiwoo_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(jiwoo, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "suah":
+                summary.append(f"suah: {reply}")
                 apply_affinity_change("suah", affinity_delta)
                 current_affinity = suah_affinity
-            elif charactor == "hobanwoo":
-                apply_affinity_change("hobanwoo", affinity_delta)
-                current_affinity = hobanwoo_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(suah, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "professor":
+                summary.append(f"professor: {reply}")
                 apply_affinity_change("professor", affinity_delta)
                 current_affinity = professor_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
+            
+            
+
+                
 
             # [안전장치 2] 목표 달성 시 종료
             if goal_achieved:

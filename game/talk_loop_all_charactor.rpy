@@ -10,6 +10,7 @@ init python:
             "shy": "shy",
             "angry": "angry",
         }
+        all_emotions = ["normal", "smile", "sad", "shy", "angry"]
         summary = []
         summary.append(f"suah: 선배님들은 오늘 끝나고 뭐하세요? 일정 따로 있으세요?")
         is_sus = False
@@ -48,37 +49,51 @@ init python:
                 sys_prompt, summary, user_msg, current_affinity, player_name, current_condition
             )
 
+            reply = reply.replace("{", "{{").replace("}", "}}")
+            sentences=[s for s in split_sentences(reply)]
             # 요약 저장
             summary.append(f"user: {user_msg}")
+
+            for emo in all_emotions:
+                renpy.hide("dawon " + emo)
+                renpy.hide("suah " + emo)
+                renpy.hide("jiwoo " + emo)
+                renpy.hide("professor " + emo)
+
+            if charactor_emotion in emotion_map:
+                show_expression = emotion_map[charactor_emotion]
+                renpy.show(charactor+" "+show_expression, at_list=[store.center])
             
             if charactor == "dawon":
                 summary.append(f"dawon: {reply}")
-            elif charactor == "suah":
-                summary.append(f"suah: {reply}")
-            
-            # 대사 출력 (기존 로직 유지)
-            sentences = [s for s in split_sentences(reply)]
-            for s in sentences:
-                safe_s = s.replace("{", "{{").replace("}", "}}")
-                if charactor == "dawon":
-                    if charactor_emotion in emotion_map:
-                        show_expression = emotion_map[charactor_emotion]
-                        renpy.show(dawon_{show_expression}, at_list=[store.left])
-                    renpy.say(dawon, "{cps=[text_speed]}%s{/cps}" % safe_s)
-
-                elif charactor == "suah":
-                    if charactor_emotion in emotion_map:
-                        show_expression = emotion_map[charactor_emotion]
-                        renpy.show(suah_{show_expression}, at_list=[store.center])
-                    renpy.say(suah, "{cps=[text_speed]}%s{/cps}" % safe_s)
-                
-
-            if charactor == "dawon":
                 apply_affinity_change("dawon", affinity_delta)
                 current_affinity = dawon_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(dawon, "{cps=[text_speed]}%s{/cps}" % safe_s)
+            elif charactor == "jiwoo":
+                summary.append(f"jiwoo: {reply}")
+                apply_affinity_change("jiwoo", affinity_delta)
+                current_affinity = jiwoo_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(jiwoo, "{cps=[text_speed]}%s{/cps}" % safe_s)
             elif charactor == "suah":
+                summary.append(f"suah: {reply}")
                 apply_affinity_change("suah", affinity_delta)
                 current_affinity = suah_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(suah, "{cps=[text_speed]}%s{/cps}" % safe_s)
+            elif charactor == "professor":
+                summary.append(f"professor: {reply}")
+                apply_affinity_change("professor", affinity_delta)
+                current_affinity = professor_affinity
+                for s in sentences:
+                    safe_s = s.replace("{", "{{").replace("}", "}}")
+                    renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
+            
+            
 
             # [안전장치 2] 목표 달성 시 종료
             if goal_achieved:
@@ -114,7 +129,7 @@ init python:
     character: 이름
 
     설명이나 부가 문장은 절대 출력하지 말고,
-    'character: dawon' 같은 형식 ONLY.
+    'character: 이름' 같은 형식 ONLY.
     """
 
         payload = {
