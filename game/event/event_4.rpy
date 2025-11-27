@@ -13,11 +13,10 @@ label event_4:
                 menu:
                     "네":
                         $ send_notification("%s님의 호감도가 -25 하락했습니다." % hobanwoo_blind)
-
                         # 호감도 적용
                         $ apply_affinity_change("hobanwoo", -25)
 
-                        if hobanwoo_affinity <= -100:
+                        if hobanwoo_affinity <= 0:
                         # "bad_ending"이라는 라벨로 강제 점프합니다.
                             jump hobanwoo_angry
                         # 루프 계속

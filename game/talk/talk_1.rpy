@@ -61,7 +61,7 @@ label talk_1:
     "'띠링'"
     play sound "audio/notification.ogg"
     "휴대폰의 알람이 다시 울렸다. 아까 들어간 호감도 표시 버튼을 눌러 들어가진 창에서 알람이 울린 것이다."
-    "그 창에는 한 사람의 이름이 추가되어 있었다."
+    "그 창에는 한 사람의 이름이     추가되어 있었다."
     $ send_notification("**'임다원'**의 호감도를 확인하시겠습니까?")
     $ typing(user, "tlqkf 이게 뭐야")
     $ typing(dawon, "갑자기 왜 욕해?")
