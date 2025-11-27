@@ -11,7 +11,7 @@ label talk_3:
 
     # --- 2. 홍지우 등장 ---
     scene bg lab with dissolve
-    show jiwoo normal at right with moveinright
+    show jiwoo normal at center with moveinright
     $ typing(jiwoo_blind, "임다원! 언니가 마실 것 좀 사왔어.")
     $ typing(dawon, "언니!")
     "[user_eunneun] 멀뚱멀뚱 쳐다보기만 한다."

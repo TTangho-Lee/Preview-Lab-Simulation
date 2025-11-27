@@ -4,7 +4,7 @@ label talk_6:
     hide professor
     
     # --- 1. 동료들 재등장 ---
-    show jiwoo normal at left
+    show jiwoo normal at center
     show suah normal at right
     $ typing(jiwoo, "이쯤하고~ 오늘은 좀 놀까?")
     $ typing(suah, "그니까요! 제가 간식 가져왔어요!") 

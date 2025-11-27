@@ -150,52 +150,29 @@ image bg black = "#000000"
 image bg lab_ending = "images/background/lab_ending.png"
 
 #다원 이미지들
-image dawon normal = ConditionSwitch(
-    "True", "images/dawon/normal.png"
-)
-image dawon smile = ConditionSwitch(
-    "True", "images/dawon/smile.png"
-)
-image dawon sad = ConditionSwitch(
-    "True", "images/dawon/sad.png"
-)
-image dawon angry = ConditionSwitch(
-    "True", "images/dawon/angry.png"
-)
-image dawon shy = ConditionSwitch(
-    "True", "images/dawon/shy.png"
-)
+image dawon normal = ConditionSwitch("True", "images/dawon_padded/normal.png")
+image dawon smile = ConditionSwitch("True", "images/dawon_padded/smile.png")
+image dawon sad = ConditionSwitch("True", "images/dawon_padded/sad.png")
+image dawon angry = ConditionSwitch("True", "images/dawon_padded/angry.png")
+image dawon shy = ConditionSwitch("True", "images/dawon_padded/shy.png")
 
 #지우 이미지들
-image jiwoo normal = ConditionSwitch(
-    "True", "images/jiwoo/normal.png"
-)
-image jiwoo smile = ConditionSwitch(
-    "True", "images/jiwoo/smile.png"
-)
-image jiwoo sad = ConditionSwitch(
-    "True", "images/jiwoo/sad.png"
-)
-image jiwoo angry = ConditionSwitch(
-    "True", "images/jiwoo/angry.png"
-)
-image jiwoo shy = ConditionSwitch(
-    "True", "images/jiwoo/shy.png"
-)
+image jiwoo normal = ConditionSwitch("True", "images/jiwoo_padded/normal.png")
+image jiwoo smile = ConditionSwitch("True", "images/jiwoo_padded/smile.png")
+image jiwoo sad = ConditionSwitch("True", "images/jiwoo_padded/sad.png")
+image jiwoo angry = ConditionSwitch("True", "images/jiwoo_padded/angry.png")
+image jiwoo shy = ConditionSwitch("True", "images/jiwoo_padded/shy.png")
 
 #수아 이미지들
-image suah normal = ConditionSwitch(
-    "True", "images/suah/normal.png"
-)
-image suah smile = ConditionSwitch(
-    "True", "images/suah/smile.png"
-)
-image suah sad = ConditionSwitch(
-    "True", "images/suah/sad.png"
-)
-image suah angry = ConditionSwitch(
-    "True", "images/suah/angry.png"
-)
-image suah shy = ConditionSwitch(
-    "True", "images/suah/shy.png"
-)
+image suah normal = ConditionSwitch("True", "images/suah_padded/normal.png")
+image suah smile = ConditionSwitch("True", "images/suah_padded/smile.png")
+image suah sad = ConditionSwitch("True", "images/suah_padded/sad.png")
+image suah angry = ConditionSwitch("True", "images/suah_padded/angry.png")
+image suah shy = ConditionSwitch("True", "images/suah_padded/shy.png")
+
+#교수 이미지들
+image professor normal = ConditionSwitch("True", "images/professor/normal.png")
+image professor smile = ConditionSwitch("True", "images/professor/smile.png")
+image professor sad = ConditionSwitch("True", "images/professor/sad.png")
+image professor angry = ConditionSwitch("True", "images/professor/angry.png")
+image professor shy = ConditionSwitch("True", "images/professor/shy.png")

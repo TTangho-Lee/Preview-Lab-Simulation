@@ -14,13 +14,13 @@ label start:
     $ player_name = renpy.input("당신의 이름을 입력하세요:", default="user").strip()
     if player_name == "":
         $ player_name = "플레이어"
-    
+    if player_name == "모든 영구저장 데이터 삭제":
+        $ persistent.ending_image = None
+        $ renpy.save_persistent()
+        jump start
+
     # 폰 기능 활성화
     show screen input_listener
 
-<<<<<<< HEAD
-    jump ending_choice
-=======
-    jump event_4
->>>>>>> origin/main
+    jump talk_1
     

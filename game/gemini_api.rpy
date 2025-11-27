@@ -65,7 +65,7 @@ goal_achievement: <true/false>
             result = response.json()
 
             if "candidates" not in result:
-                return "...",charactor_emotion, summary, current_affinity, False, False
+                return "...","normal", summary, current_affinity, False, False
 
             text = result["candidates"][0]["content"]["parts"][0]["text"]
 
