@@ -25,17 +25,20 @@ init python:
             
             charactor = ask_llm_for_next_character(summary, user_msg)
 
-
             # 캐릭터별 초기 설정
             if charactor == "dawon":
                 current_affinity = dawon_affinity
                 sys_prompt = system_prompt_dawon
+                renpy.hide("suah normal")
+                renpy.show("dawon normal", at_list=[store.left])
             elif charactor == "jiwoo":
                 current_affinity = jiwoo_affinity
                 sys_prompt = system_prompt_jiwoo
             elif charactor == "suah":
                 current_affinity = suah_affinity
                 sys_prompt = system_prompt_suah
+                renpy.hide("dawon normal")
+                renpy.show("suah normal", at_list=[store.center])
             elif charactor == "hobanwoo":
                 current_affinity = hobanwoo_affinity
                 sys_prompt = system_prompt_hobanwoo

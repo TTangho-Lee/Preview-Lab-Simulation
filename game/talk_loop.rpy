@@ -84,6 +84,17 @@ init python:
             if affinity_delta >= 4 or affinity_delta <= -4:
                 affinity_delta = 0
 
+            expression = "normal" # 기본 표정
+            if affinity_delta > 0:
+                expression = "smile" # 호감도 상승 시 웃는 표정 (이미지 파일명에 따라 'smile' 등 수정 가능)
+            elif affinity_delta < 0:
+                expression = "angry" # 지금 angry 표정이 없는데 이것도 하나 만들면 좋을듯?
+            
+            # 캐릭터별 표정 적용 (이미지 태그: "char_id expression")
+            if charactor in ["dawon", "jiwoo", "suah"]: # 이미지가 있는 캐릭터만
+                renpy.show(f"{charactor} {expression}")
+
+            
             if charactor == "dawon":
                 apply_affinity_change("dawon", affinity_delta)
                 current_affinity = dawon_affinity
