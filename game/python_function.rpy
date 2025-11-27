@@ -11,7 +11,7 @@ init python:
         elif name == "suah":
             suah_affinity = max(0, min(100, suah_affinity + delta))
         elif name == "hobanwoo":
-            hobanwoo_affinity = max(-100, min(100, hobanwoo_affinity + delta))
+            hobanwoo_affinity = max(0, min(100, hobanwoo_affinity + delta))
         elif name=="professor":
             professor_affinity = max(0, min(100, professor_affinity + delta))
 

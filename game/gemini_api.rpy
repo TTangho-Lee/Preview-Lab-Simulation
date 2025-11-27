@@ -71,7 +71,7 @@ goal_achievement: <true/false>
 
             # 파싱
             reply = ""
-            charactor_emotion=""
+            charactor_emotion="normal"
             updated_summary = summary
             affinity_delta = 0
             is_suspected = False
