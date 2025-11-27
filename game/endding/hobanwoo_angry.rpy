@@ -1,4 +1,4 @@
-label bad_ending:
+label hobanwoo_angry:
     # 배경: 어둡고 차가운 느낌, 혹은 노이즈가 낀 배경 추천
     scene bg black with dissolve
     
