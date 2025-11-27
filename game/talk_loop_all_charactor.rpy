@@ -15,7 +15,7 @@ init python:
         summary.append(f"suah: 선배님들은 오늘 끝나고 뭐하세요? 일정 따로 있으세요?")
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
-        renpy.show("suah normal", at_list=[store.center])
+        renpy.show("suah normal", at_list=[store.right])
 
         while True:
             if turn_count >= max_turn+2:
@@ -62,7 +62,14 @@ init python:
 
             if charactor_emotion in emotion_map:
                 show_expression = emotion_map[charactor_emotion]
-                renpy.show(charactor+" "+show_expression, at_list=[store.center])
+                if character=="dawon":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.left])
+                elif character=="jiwoo":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.center])
+                elif character=="suah":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.right])
+                elif character=="professor":
+                    renpy.show(charactor + " " + show_expression, at_list=[store.center])
             
             if charactor == "dawon":
                 summary.append(f"dawon: {reply}")
