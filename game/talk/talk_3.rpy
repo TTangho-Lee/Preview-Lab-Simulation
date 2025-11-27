@@ -18,6 +18,7 @@ label talk_3:
     $ typing(dawon, "응 [user]라고, 들어온 지 얼마 안 됐어. 나랑 동갑.")
     $ typing(jiwoo_blind, "[user] 안녕?")
     $ typing(user, "안녕하세요.")
+    $ jiwoo_name_ui = "홍지우"
     $ typing(jiwoo, "나는 홍지우라고 해.")
     $ apply_affinity_change("jiwoo",30)
     $ typing(user, "안녕하세요.")

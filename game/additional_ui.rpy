@@ -3,6 +3,11 @@
 # --- 변수 선언 ---
 default phone_visible = False
 
+# [추가됨] 캐릭터 이름 변수 (초기값은 ???)
+default dawon_name_ui = "???"
+default jiwoo_name_ui = "???"
+default suah_name_ui = "???"
+
 # --- 키 설정 (0번 누르면 폰 토글) ---
 init python:
     config.keymap['toggle_phone'] = ['K_0']
@@ -50,26 +55,28 @@ screen phone_overlay():
                         # 임다원
                         hbox:
                             spacing 10
-                            text "임다원" color "#ffffff" size 18 yalign 0.5
+                            # [수정됨] 변수([dawon_name_ui])를 사용하여 이름 표시
+                            text "[dawon_name_ui]" color "#ffffff" size 18 yalign 0.5
                             bar value dawon_affinity range 100 xysize (230, 20) style "blood_bar"
 
                         # 홍지우
                         hbox:
                             spacing 10
-                            text "홍지우" color "#ffffff" size 18 yalign 0.5
+                            # [수정됨] 변수 사용
+                            text "[jiwoo_name_ui]" color "#ffffff" size 18 yalign 0.5
                             bar value jiwoo_affinity range 100 xysize (230, 20) style "blood_bar"
 
                         # 윤수아
                         hbox:
                             spacing 10
-                            text "윤수아" color "#ffffff" size 18 yalign 0.5
+                            # [수정됨] 변수 사용
+                            text "[suah_name_ui]" color "#ffffff" size 18 yalign 0.5
                             bar value suah_affinity range 100 xysize (230, 20) style "blood_bar"
 
                 null height 20
                 
                 # 기능 버튼 섹션
                 textbutton "🤖 호반우 챗봇 대화":
-                    # [수정됨] Jump -> Call 로 변경 (끝나면 원래 스토리로 복귀)
                     action Call("hobanwoo_chat_start") 
                     xalign 0.5
                     text_size 22
@@ -92,8 +99,7 @@ screen phone_overlay():
 
                 # 탈퇴 버튼 (붉게 강조)
                 textbutton "탈퇴하기":
-                    # [수정됨] Jump -> Call 로 변경 (끝나면 원래 스토리로 복귀)
-                    action Return(True)
+                    action Call("app_leave_event")
                     xalign 0.5 
                     text_color "#ff0000" 
                     text_size 28

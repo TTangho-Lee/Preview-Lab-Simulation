@@ -21,4 +21,4 @@ label start:
 
 
 
-    jump talk_12
+    jump talk_1

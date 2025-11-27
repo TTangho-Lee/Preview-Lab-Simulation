@@ -30,6 +30,7 @@ label talk_2:
     "임다원에게 속닥거리며 물어본다."
     $ typing(user, "쟤는 누구야...?")
     $ typing(dawon, "너 이 정도면 기억상실 아니야? 수아잖아, 윤수아.")
+    $ suah_name_ui = "윤수아"
     $ apply_affinity_change("suah",30)
     $ typing(user, "아, 그래?")
     $ typing(suah, "배 안고프세요? 곧 저녁시간인데 같이 밥 먹으러 가요!")
