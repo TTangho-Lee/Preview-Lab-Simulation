@@ -9,9 +9,9 @@ label lab_ending:
     "——신호 끊김——"
 
     scene black with fade
-    "…삐…—"
     pause 3.0
 
+    "…삐…—"
 
     $ typing(researcher_a, "가상체 전부 다운. 피험자, 자각 단계 진입 확인.")
     $ typing(researcher_b, "이번엔 빠르네요. 알고리즘이 너무 익었나 봅니다.")
@@ -47,12 +47,13 @@ label lab_ending:
     scene black with fade
 
     $ typing(researcher_b, "차단 완료. 뇌파 안정화 중.")
-    $ typing(researcher_a, "좋아요. 루프 24로 돌립니다.")
+    $ typing(researcher_a, "좋아요. 루프 14로 돌립니다.")
 
     "찰칵—"
 
     $ typing(researcher_b, "재부팅 들어갑니다.")
     "—시스템 재기동—"
+
     pause 3.0
 
     jump talk_1
