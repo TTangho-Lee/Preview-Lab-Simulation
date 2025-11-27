@@ -64,6 +64,10 @@ goal_achievement: <true/false>
             response = requests.post(GEMINI_URL, headers=headers, data=json.dumps(payload), timeout=10)
             result = response.json()
 
+            #with open("C:/Users/seung/Downloads/gemini_raw_log.txt", "a", encoding="utf-8") as f:
+            #    f.write(json.dumps(result, ensure_ascii=False) + "\n\n")
+
+
             if "candidates" not in result:
                 return "...","normal", summary, current_affinity, False, False
 

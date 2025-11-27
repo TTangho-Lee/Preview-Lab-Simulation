@@ -45,7 +45,7 @@ label dream_ending_2:
 
     return
 
-label dream_ending_3:
+label dream_ending:
     scene black with fade
     "끼이익…."
     "누군가 문을 밀어 연다. 차갑고 건조한 공기가 방 안으로 스며든다."
