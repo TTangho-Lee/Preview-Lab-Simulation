@@ -352,26 +352,23 @@ screen main_menu():
     ## 이렇게 하면 다른 메뉴 화면이 모두 교체됩니다.
     tag menu
 
-    add gui.main_menu_background
+    # ★ 기본 메인 메뉴 배경
+    $ bg_image = gui.main_menu_background
+
+    # ★ 엔딩을 본 적 있다면 persistent 이미지 사용
+    if hasattr(persistent, "ending_image") and persistent.ending_image:
+        $ bg_image = persistent.ending_image
+
+    # ★ 최종 결정된 배경 표시
+    add bg_image
 
     ## 이 빈 프레임은 기본 메뉴를 어둡게 만듭니다.
-    frame:
-        style "main_menu_frame"
+
 
     ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
     ## 용물은 navigation 스크린에 있습니다.
     use navigation
 
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty

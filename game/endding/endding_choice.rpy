@@ -34,8 +34,10 @@ label ending_choice:
         "1. 고백을 받는다":
             jump happy_ending
 
-        "2. 받지 않는다":
-            jump dream_ending_1
-
         "3. 거절한다":
-            jump lab_ending
+            if max_affinity>=80:
+                jump bad_ending
+            elif max_affinity>=60:
+                jump lab_ending
+            else:
+                jump normal_ending

@@ -15,7 +15,7 @@ label happy_ending:
         show dawon shy
         $ typing(dawon, "정말? 그럼...우리")
         $ typing(user, "사귀자")
-        show dawon love
+        show dawon smile
         $ typing(dawon, "...좋아")
         scene bg sunset_dawon with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"
@@ -29,7 +29,7 @@ label happy_ending:
         show jiwoo shy
         $ typing(jiwoo, "정말? 그럼...우리")
         $ typing(user, "사귀자")
-        show jiwoo love
+        show jiwoo smile
         $ typing(jiwoo, "...좋아")
         scene bg sunset_jiwoo with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"
@@ -43,7 +43,7 @@ label happy_ending:
         show suah shy
         $ typing(suah, "정말? 그럼...우리")
         $ typing(user, "사귀자")
-        show suah love
+        show suah smile
         $ typing(suah, "...좋아")
         scene bg sunset_suah with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"

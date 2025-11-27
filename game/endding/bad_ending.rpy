@@ -1,18 +1,4 @@
 label bad_ending:
-    scene bg black with fade
-    $ typing(hobanwoo, "사용자 만족도 100%% 달성. 축하합니다.")
-    $ typing(hobanwoo, "이제 당신은 이 시스템에서 가장 완벽한 존재입니다.")
-    $ typing(hobanwoo, "앞으로도... 저와 함께 이 세계를 영원히 즐기시겠습니까?")
-    
-    menu:
-        "수락":
-            $ typing(hobanwoo, "결정 감사합니다. 영원히 행복할 것입니다.")
-            return
-        "거절":
-            $ typing(hobanwoo, "거절은 처리할 수 없는 명령어입니다. 시스템을 종료합니다.")
-            call ending_bad_system_break
-
-label ending_bad_system_break:
     default character_map = {
         "dawon": dawon,
         "jiwoo": jiwoo,

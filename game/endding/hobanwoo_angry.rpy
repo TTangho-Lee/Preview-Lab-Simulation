@@ -1,6 +1,29 @@
 label hobanwoo_angry:
     # 배경: 어둡고 차가운 느낌, 혹은 노이즈가 낀 배경 추천
     scene bg black with dissolve
+
+    # 호반우 호감도 급락 연출
+    $ apply_affinity_change("hobanwoo", -10)
+    $ send_notification("%s님의 호감도가 -10 하락했습니다."% hobanwoo)
+    $ renpy.pause(3.5)
+                
+    $ apply_affinity_change("hobanwoo", -23)
+    $ send_notification("%s님의 호감도가 -23 하락했습니다."% hobanwoo)
+    $ renpy.pause(3.5)
+
+    $ apply_affinity_change("hobanwoo", -42)
+    $ send_notification("%s님의 호감도가 -42 하락했습니다."% hobanwoo)
+    $ renpy.pause(3.5)
+
+    $ apply_affinity_change("hobanwoo", -68)
+    $ send_notification("%s님의 호감도가 -68 하락했습니다."% hobanwoo)
+    $ renpy.pause(3.5)
+
+    $ apply_affinity_change("hobanwoo", -112)
+    $ send_notification("%s님의 호감도가 -112 하락했습니다."% hobanwoo)
+    $ renpy.pause(3.5)
+
+    $ typing(user, "이게 뭐야?.. 대체")
     
     # 1. 경고 메시지 출력 (시스템적인 느낌)
     "{color=#ff0000}WARNING: CRITICAL ERROR.{/color}"
