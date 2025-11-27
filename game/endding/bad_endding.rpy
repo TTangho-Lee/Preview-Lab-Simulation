@@ -121,8 +121,6 @@ label ending_bad_system_break:
     hide expression char_id
     "‘띠링’"
     $ renpy.call_screen("message_toast", "KNUAI : [메세지] 새로운 메시지가 도착하였습니다.") 
-    
-    # 최종 탈퇴 화면 호출 및 재촉 로직
-    call screen confirm_quit_screen (char_id)
+
     
     return

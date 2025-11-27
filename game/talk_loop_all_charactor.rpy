@@ -5,6 +5,7 @@ init python:
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_hobanwoo, system_prompt_professor
         
         summary = []
+        summary.append(f"suah: 선배님들은 오늘 끝나고 뭐하세요? 일정 따로 있으세요?")
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
 
@@ -129,9 +130,8 @@ init python:
     유저의 최신 발화:
     {user_msg}
 
-    등장 가능한 캐릭터는 다음 3명이다:
+    등장 가능한 캐릭터는 다음 2명이다:
     - dawon
-    - jiwoo
     - suah
 
     현재 상황에서 가장 자연스럽게 다음 턴에 발화할 캐릭터 1명을 선택해라.
@@ -140,7 +140,7 @@ init python:
     character: 이름
 
     설명이나 부가 문장은 절대 출력하지 말고,
-    'character: 지우' 같은 형식 ONLY.
+    'character: dawon' 같은 형식 ONLY.
     """
 
         payload = {
@@ -165,7 +165,7 @@ init python:
             result = response.json()
 
             if "candidates" not in result:
-                return random.choice(["dawon", "jiwoo", "suah"])
+                return random.choice(["dawon", "suah"])
 
             text = result["candidates"][0]["content"]["parts"][0]["text"]
             text = text.lower().strip()
@@ -173,12 +173,12 @@ init python:
             # 출력 예시: "character: jiwoo"
             if text.startswith("character:"):
                 name = text.replace("character:", "").strip()
-                if name in ["dawon", "jiwoo", "suah"]:
+                if name in ["dawon", "suah"]:
                     return name
 
             # 비정상 출력 fallback
-            return random.choice(["dawon", "jiwoo", "suah"])
+            return random.choice(["dawon", "suah"])
 
         except Exception as e:
             # 실패 시 랜덤 fallback
-            return random.choice(["dawon", "jiwoo", "suah"])
+            return random.choice(["dawon", "suah"])
