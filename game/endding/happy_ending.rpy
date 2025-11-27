@@ -17,7 +17,7 @@ label happy_ending:
         $ typing(user, "사귀자")
         show dawon love
         $ typing(dawon, "...좋아")
-        scene bg sunset with dissolve
+        scene bg sunset_dawon with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(다원은 [player_name]에게 팔짱을 낀다.)"
         $ typing(dawon, "너랑 이런 사이가 되어서.. 정말 좋아해")
@@ -29,7 +29,7 @@ label happy_ending:
         $ typing(user, "사귀자")
         show jiwoo love
         $ typing(jiwoo, "...좋아")
-        scene bg sunset with dissolve
+        scene bg sunset_jiwoo with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(지우는 [player_name]에게 팔짱을 낀다.)"
         $ typing(jiwoo, "너랑 이런 사이가 되어서.. 정말 좋아해")
@@ -41,7 +41,7 @@ label happy_ending:
         $ typing(user, "사귀자")
         show suah love
         $ typing(suah, "...좋아")
-        scene bg sunset with dissolve
+        scene bg sunset_suah with dissolve
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(수아는 [player_name]에게 팔짱을 낀다.)"
         $ typing(suah, "너랑 이런 사이가 되어서.. 정말 좋아해")
