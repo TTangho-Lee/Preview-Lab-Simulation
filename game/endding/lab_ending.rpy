@@ -67,6 +67,6 @@ label lab_ending:
 
     pause 3.0
 
-    $ persistent.ending_image = "images/background/lab_ending.png"
+    $ persistent.ending_image = lab_ending_image
     $ renpy.save_persistent()
     jump talk_1

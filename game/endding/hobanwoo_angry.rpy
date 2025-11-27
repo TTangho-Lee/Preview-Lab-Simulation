@@ -68,6 +68,8 @@ label hobanwoo_angry:
     
     $ typing(hobanwoo, "잘 가요. 다신 보지 맙시다.")
 
+    $ persistent.ending_image = hobanwoo_angry_ending_image
+    $ renpy.save_persistent()
     # 5. 게임 강제 종료 (또는 메인 메뉴로 튕겨내기)
     # renpy.quit()를 쓰면 게임 창이 아예 꺼집니다. 
     # MainMenu()로 보내면 타이틀 화면으로 돌아갑니다.

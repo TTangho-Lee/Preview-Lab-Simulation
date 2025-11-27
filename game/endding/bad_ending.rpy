@@ -62,5 +62,6 @@ label bad_ending:
     hide expression "%s sad" % max_char_id
     "'띠링'"
     $ renpy.call_screen("message_toast", "KNUAI : [메세지] 새로운 메시지가 도착하였습니다.") 
-
+    $ persistent.ending_image = bad_ending_image
+    $ renpy.save_persistent()
     return

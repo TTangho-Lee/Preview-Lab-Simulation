@@ -17,7 +17,8 @@ label dream_ending_1:
     $ typing(real_professor, "현실 볼 자신 없나 보지.")
     $ typing(real_student_2, "그래서 저 표정인가요.")
     $ typing(real_professor, "깨우지 마라.")
-
+    $ persistent.ending_image = dream_ending_image
+    $ renpy.save_persistent()
     return
 
 label dream_ending_2:
@@ -42,7 +43,8 @@ label dream_ending_2:
     
     $ typing(real_professor, "깨우지 마. 계속 자게 둬라.")
     $ typing(real_professor, "…적어도 꿈에서는 누군가와 잘 지내고 있을 테니까.")
-
+    $ persistent.ending_image = dream_ending_image
+    $ renpy.save_persistent()
     return
 
 label dream_ending:
@@ -68,5 +70,6 @@ label dream_ending:
 
     "세 사람의 시선이 잠든 [user] 위로 조용히 내려앉는다."
     "현실의 형광등은 참혹할 만큼 밝다. 그리고 [user_eunneun] 그 잔혹한 밝음조차 모른 채, 계속 웃고만 있다."
-
+    $ persistent.ending_image = dream_ending_image
+    $ renpy.save_persistent()
     return
