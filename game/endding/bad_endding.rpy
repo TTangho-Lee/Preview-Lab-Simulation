@@ -31,7 +31,7 @@ label ending_hobanwoo_good:
             return
         "2. (거절한다)":
             hobanwoo "{cps=[text_speed]}거절은 처리할 수 없는 명령어입니다. 시스템을 종료합니다.{/cps}"
-            call ending_bad_system_break("hobanwoo")
+            call ending_bad_system_break("hobanwoo") from _call_ending_bad_system_break
 
 # --- 일반 엔딩 (호감도 부족) ---
 label ending_normal:
