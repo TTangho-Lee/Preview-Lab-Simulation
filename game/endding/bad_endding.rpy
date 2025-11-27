@@ -15,7 +15,13 @@ label bad_ending:
     $ max_affinity = char_affinities[max_char_id]
 
 
-        
+    if hobanwoo_affinity > max_affinity:
+        jump ending_hobanwoo_good
+    elif max_affinity < 80:
+        jump ending_normal
+    else:
+        jump ending_bad_system_break
+
     
 # --- 호반우 최고 호감도 엔딩 (자리 지키기) ---
 label ending_hobanwoo_good:
@@ -44,9 +50,20 @@ label ending_normal:
 
 
 # --- 배드 엔딩 (2, 3 ending....ㅜㅠ) ---
-label ending_bad_system_break(char_id):
+label ending_bad_system_break:
     
-    $ a = renpy.get_character(char_id) # a 캐릭터 객체 가져오기
+    # 1. 호감도 최대 캐릭터 (인간 캐릭터 중) 찾기
+    $ char_affinities = {
+        "dawon": dawon_affinity,
+        "jiwoo": jiwoo_affinity,
+        "suah": suah_affinity,
+    }
+    
+    # 2. 최고 호감도 캐릭터 (a) 선택
+    $ max_char_id = max(char_affinities, key=char_affinities.get)
+    $ max_affinity = char_affinities[max_char_id]
+
+    $ a = renpy.get_character(max_char_id) # a 캐릭터 객체 가져오기
     
     scene bg black with fade
     hide expression char_id
