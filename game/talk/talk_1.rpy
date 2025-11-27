@@ -26,7 +26,7 @@ label talk_1:
     $ send_notification("[메시지] 새로운 메시지가 도착하였습니다.")
     "휴대폰의 알람이 울렸다. [user_iga] 이 낯선 장소로 오기 전의 본인의 휴대폰과 정확히 일치했다."
     "하지만 새로운 앱 **KNUAI**가 설치되어 있었다."
-    show screen phone_overlay
+    "*0번 키를 눌러 휴대폰을 확인하세요*"
     $ typing(user, "KNUAI는 뭐지? KNUPiA가 아니고?")
     "글을 확인하는 [user], 새로운 글에는 'KNUAI 사용 유의사항'이 적혀있었다."
     "KNUPiA와 똑같은 화면이었지만 하나의 기능이 더 추가되어있었다. **'호감도 표시'**"
