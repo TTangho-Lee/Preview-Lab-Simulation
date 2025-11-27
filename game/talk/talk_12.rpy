@@ -8,6 +8,5 @@ label talk_12:
 
     # --- 2. 휴식 및 대화 상대 선택 (호감도작) ---
     $ typing(user, "(누구한테 물어볼까?)")
-
     
     jump event_12

@@ -78,6 +78,6 @@ init python:
         return jong != 0
     
     def typing(charactor, sentence):
-        renpy.say(charactor, "{cps=[text_speed]}%s{/cps}" % sentence)
+        renpy.say(charactor, f"{{cps=[text_speed]}}{sentence}{{/cps}}")
 
 

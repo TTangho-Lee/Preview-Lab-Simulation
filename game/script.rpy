@@ -19,3 +19,4 @@ label start:
     show screen input_listener
 
     jump talk_1
+    

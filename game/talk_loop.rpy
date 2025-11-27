@@ -85,10 +85,10 @@ init python:
                 affinity_delta = 0
 
             expression = "normal" # 기본 표정
-            if affinity_delta > 0:
-                expression = "smile" # 호감도 상승 시 웃는 표정 (이미지 파일명에 따라 'smile' 등 수정 가능)
-            elif affinity_delta < 0:
-                expression = "angry" # 지금 angry 표정이 없는데 이것도 하나 만들면 좋을듯?
+            if affinity_delta > 1:
+                expression = "smile" # 호감도 크게 증가 시 웃는 표정
+            elif affinity_delta < -1:
+                expression = "angry" # 호감도 크게 감소 시 웃는 표정
             
             # 캐릭터별 표정 적용 (이미지 태그: "char_id expression")
             if charactor in ["dawon", "jiwoo", "suah"]: # 이미지가 있는 캐릭터만

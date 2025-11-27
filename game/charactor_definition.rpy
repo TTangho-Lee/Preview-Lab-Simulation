@@ -137,6 +137,7 @@ default system_prompt_professor="""
 
 # --- 이미지 정의 (플레이스홀더) ---
 image bg lab = "images/background/lab.png"
+image bg my_computer = "images/background/my_computer.png"
 image bg restaurant = "images/background/restaurant.png"
 image bg home = "images/background/home.png"
 image bg sunset = "images/background/sunset.png"
@@ -144,31 +145,53 @@ image bg truck = "images/background/truck.png"
 image bg black = "#000000"
 image bg lab_ending = "images/background/lab_ending.png"
 
-# 이미지가 없을 경우를 대비해 Solid 색상으로 대체 (나중에 파일 넣으면 수정 필요)
+#다원 이미지들
 image dawon normal = ConditionSwitch(
     "True", "images/dawon/normal.png"
 )
 image dawon smile = ConditionSwitch(
     "True", "images/dawon/smile.png"
 )
-image dawon shock = ConditionSwitch(
-    "True", "images/dawon/shock.png"
+image dawon sad = ConditionSwitch(
+    "True", "images/dawon/sad.png"
 )
+image dawon angry = ConditionSwitch(
+    "True", "images/dawon/angry.png"
+)
+image dawon shy = ConditionSwitch(
+    "True", "images/dawon/shy.png"
+)
+
+#지우 이미지들
 image jiwoo normal = ConditionSwitch(
     "True", "images/jiwoo/normal.png"
-)
-image jiwoo shock = ConditionSwitch(
-    "True", "images/dawon/shock.png"
 )
 image jiwoo smile = ConditionSwitch(
     "True", "images/jiwoo/smile.png"
 )
+image jiwoo sad = ConditionSwitch(
+    "True", "images/jiwoo/sad.png"
+)
+image jiwoo angry = ConditionSwitch(
+    "True", "images/jiwoo/angry.png"
+)
+image jiwoo shy = ConditionSwitch(
+    "True", "images/jiwoo/shy.png"
+)
+
+#수아 이미지들
 image suah normal = ConditionSwitch(
     "True", "images/suah/normal.png"
 )
 image suah smile = ConditionSwitch(
     "True", "images/suah/smile.png"
 )
-image suah shock = ConditionSwitch(
-    "True", "images/suah/shock.png"
+image suah sad = ConditionSwitch(
+    "True", "images/suah/sad.png"
+)
+image suah angry = ConditionSwitch(
+    "True", "images/suah/angry.png"
+)
+image suah shy = ConditionSwitch(
+    "True", "images/suah/shy.png"
 )

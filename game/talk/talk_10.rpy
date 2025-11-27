@@ -1,7 +1,7 @@
 label talk_10:
     # --- 1. 날짜 변경 및 장소 이동 ---
     "다음날 아침이 밝았다."
-    scene bg lab with fade
+    scene bg my_computer with fade
     
 
     # --- 2. KNUAI 알림 ---

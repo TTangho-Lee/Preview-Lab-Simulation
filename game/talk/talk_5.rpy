@@ -7,6 +7,7 @@ label talk_5:
 
     # --- 2. 교수님 등장 ---
     "문이 열리며 교수님이 들어오신다." 
+    scene bg lab with dissolve
     show professor normal at center with moveinright
     $ typing(professor, "두고 간 게 있어서 잠시 들렸는데, 다들 집 안 가니?" )
     $ typing(user, "네 교수님… 아직 논문 작성이 끝이 안 나서요." )

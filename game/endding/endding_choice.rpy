@@ -30,7 +30,6 @@ label ending_choice:
         $ typing(suah, "저… 선배님을 좋아해요. 오래전부터요.")
         $ typing(suah, "말하고 나니까… 좀 떨리네요.")
 
-    # 4. 엔딩 선택지 생성
     menu:
         "1. 고백을 받는다":
             jump happy_ending

@@ -14,7 +14,7 @@ label talk_1:
     
 
     # --- 2. 깨어남 씬 ---
-    scene bg lab with dissolve
+    scene bg my_computer with dissolve
     "눈을 뜬 [user], 책상에서 엎드린 상태였다."
     $ typing(user, "뭐야, 나 방금 트럭에 치인 거 아니였나?")
     $ typing(user, "꿈이라기엔 너무 생생했는데, 여긴 어디.. 연구실?")
@@ -38,7 +38,8 @@ label talk_1:
     # --- 4. 임다원 등장 ---
     "갑작스럽게 어깨에 손을 대는 누군가."
     play sound "audio/tap_shoulder.ogg"
-    show dawon normal at left with moveinright 
+    scene bg lab with dissolve
+    show dawon normal at left with moveinright
     "황급히 뒤를 돌아보니 낯선 여자가 얼굴을 들이밀고 [user_eulreul] 바라보고 있었다."
     $ typing(dawon_blind, "뭐해?")
     $ typing(user, "어? 어")

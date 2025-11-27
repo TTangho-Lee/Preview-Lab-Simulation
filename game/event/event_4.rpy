@@ -22,8 +22,8 @@ label event_4:
 
                     "아니오":
                         "{cps=[text_speed]}...취소되었습니다.{/cps}"
-                        jump talk_5
+                        return
 
             "아니오":
                 "{cps=[text_speed]}...취소되었습니다.{/cps}"
-                jump talk_5
+                return

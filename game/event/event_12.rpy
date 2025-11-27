@@ -2,7 +2,7 @@ label event_12:
     scene bg lab
     menu:
         "1. 임다원과 놀자":
-            show suah smile
+            show dawon smile
             $ typing(dawon, "놀자고? 그래 ✨")
             $ apply_affinity_change("dawon", 20)
             $ send_notification("임다원 호감도 +20")
@@ -52,5 +52,5 @@ label event_12:
 
             $ typing(user, "이게 뭐야?.. 대체")
             
-            jump bad_endding
+            jump bad_ending
             
