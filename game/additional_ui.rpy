@@ -99,7 +99,7 @@ screen phone_overlay():
 
                 # 탈퇴 버튼 (붉게 강조)
                 textbutton "탈퇴하기":
-                    action Call("app_leave_event")
+                    action Call("event_4")
                     xalign 0.5 
                     text_color "#ff0000" 
                     text_size 28
