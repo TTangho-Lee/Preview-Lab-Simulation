@@ -21,6 +21,8 @@ label happy_ending:
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(다원은 [player_name]에게 팔짱을 낀다.)"
         $ typing(dawon, "너랑 이런 사이가 되어서.. 정말 좋아해")
+        $ persistent.ending_image = "images/background/sunset_dawon.png"
+        $ renpy.save_persistent()
         return
 
     elif max_char_id == "jiwoo":
@@ -33,6 +35,8 @@ label happy_ending:
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(지우는 [player_name]에게 팔짱을 낀다.)"
         $ typing(jiwoo, "너랑 이런 사이가 되어서.. 정말 좋아해")
+        $ persistent.ending_image = "images/background/sunset_jiwoo.png"
+        $ renpy.save_persistent()
         return
 
     elif max_char_id == "suah":
@@ -45,6 +49,8 @@ label happy_ending:
         "해가 내려가고 하늘이 파랗게 물든 시간"
         "(수아는 [player_name]에게 팔짱을 낀다.)"
         $ typing(suah, "너랑 이런 사이가 되어서.. 정말 좋아해")
+        $ persistent.ending_image = "images/background/sunset_suah.png"
+        $ renpy.save_persistent()
         return
 
     

@@ -68,13 +68,13 @@ init python:
 
             if charactor_emotion in emotion_map:
                 show_expression = emotion_map[charactor_emotion]
-                if character=="dawon":
+                if charactor=="dawon":
                     renpy.show(charactor + " " + show_expression, at_list=[store.left])
-                elif character=="jiwoo":
+                elif charactor=="jiwoo":
                     renpy.show(charactor + " " + show_expression, at_list=[store.center])
-                elif character=="suah":
+                elif charactor=="suah":
                     renpy.show(charactor + " " + show_expression, at_list=[store.right])
-                elif character=="professor":
+                elif charactor=="professor":
                     renpy.show(charactor + " " + show_expression, at_list=[store.center])
 
             if charactor == "dawon":
@@ -106,9 +106,6 @@ init python:
                     safe_s = s.replace("{", "{{").replace("}", "}}")
                     renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
             
-            
-
-                
 
             # [안전장치 2] 목표 달성 시 종료
             if goal_achieved:

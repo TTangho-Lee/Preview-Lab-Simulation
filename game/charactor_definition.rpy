@@ -4,6 +4,7 @@
 default persistent.player_name = "User"
 default player_name = "User" 
 define text_speed = 35
+default persistent.ending_image=None
 
 # --- 현재 대화 정보 ---
 default current_character_id = "dawon" 
