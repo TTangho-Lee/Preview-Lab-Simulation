@@ -17,6 +17,9 @@ label event_4:
                         # 호감도 적용
                         $ apply_affinity_change("hobanwoo", -25)
 
+                        if hobanwoo_affinity <= -100:
+                        # "bad_ending"이라는 라벨로 강제 점프합니다.
+                            jump hobanwoo_angry
                         # 루프 계속
                         jump event_4
 
