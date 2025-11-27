@@ -49,7 +49,7 @@ screen phone_overlay():
                     xfill True
                     padding (10, 10)
                     vbox:
-                        text "♥ 호감도 분석" size 22 color "#ff0000" bold True xalign 0.0
+                        text "♥ 호감도 표시" size 22 color "#ff0000" bold True xalign 0.0
                         null height 5
 
                         # 임다원
