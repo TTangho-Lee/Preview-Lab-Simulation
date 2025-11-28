@@ -201,9 +201,3 @@ init python:
 ## 다.
 
 # define build.itch_project = "renpytom/test-project"
-
-
-style navigation_textbutton is default:
-    color "#000000"          # 글자 색상: 흰색
-    outlines [(5, "#000000", 0, 0)]  # 테두리: 검은색, 두께 2px
-    bold True                # 글자 두껍게
