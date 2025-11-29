@@ -65,86 +65,63 @@ Gemini API가 유저 입력 텍스트의 감정(긍정/부정/의심 등)을 실
 
 ## 📁 `미리보는 연구실 시뮬레이션` 프로젝트 구조 요약
 
-D:\RENPY-8.5.0-SDK\LAB_SIMULATION\GAME
+LAB_SIMULATION/
 │
 │  additional_ui.rpy             # 추가 UI/스크린 정의
-│  a_secret_key.rpy              # API 키 등 보안 관련 변수 정의 (추측)
-│  charactor_definition.rpy      # 캐릭터 정의 및 속성 설정
-│  gemini_api.rpy                # Gemini API 연동 관련 로직 (추측)
-│  gui.rpy                       # GUI 스타일 및 설정 파일
-│  options.rpy                   # 게임 옵션 (해상도, 볼륨 등) 설정
-│  python_function.rpy           # Ren'Py 내부에서 사용되는 Python 함수 정의
-│  screens.rpy                   # 게임 화면 (메인 메뉴, 환경설정 등) 정의
-│  script.rpy                    # 메인 게임 시작 스크립트 파일
-│  SourceHanSansLite.ttf         # 사용된 폰트 파일
-│  talk_loop.rpy                 # 대화 루프 스크립트
+│  a_secret_key.rpy              # API 키/민감 정보 관리 (실 배포 시 제외 필요)
+│  charactor_definition.rpy      # 캐릭터 정보 및 기본 설정
+│  gemini_api.rpy                # Gemini API 연동 로직
+│  gui.rpy                       # GUI 스타일 및 설정
+│  options.rpy                   # 해상도/환경설정 등 옵션 정의
+│  python_function.rpy           # 게임 내부에서 사용하는 Python 함수 모음
+│  screens.rpy                   # 메인 메뉴 및 각종 화면(Screen) 정의
+│  script.rpy                    # 게임 메인 루트 스크립트
+│  SourceHanSansLite.ttf         # 게임에서 사용하는 폰트
+│  talk_loop.rpy                 # 대화 루프 메인 로직
 │  talk_loop_all_charactor.rpy   # 모든 캐릭터 대화 루프 통합 스크립트
 │
-├─cache                          # Ren'Py 빌드/캐시 파일
-│  │
-│  ├─ ... (rpyb, txt 파일)
+├─ cache/                        # Ren'Py 캐시 및 빌드 파일
 │
-├─endding                        # 🎬 엔딩 관련 스크립트
-│  │
-│  bad_ending.rpy                # 배드 엔딩 스크립트
-│  dream_ending.rpy              # 드림 엔딩 스크립트
-│  endding_choice.rpy            # 엔딩 분기점 선택 스크립트
-│  happy_ending.rpy              # 해피 엔딩 스크립트
-│  ...
+├─ endding/                      # 🎬 엔딩 시나리오 스크립트 모음
+│   ├─ bad_ending.rpy
+│   ├─ dream_ending.rpy
+│   ├─ endding_choice.rpy
+│   ├─ happy_ending.rpy
+│   └─ ...
 │
-├─event                          # 🗓️ 주요 이벤트 씬 스크립트
-│  │
-│  event_1.rpy                   # 이벤트 1 스크립트
-│  ... 
-│  event_12.rpy                  # 이벤트 10 스크립트
-│  ...
+├─ event/                        # 🗓️ 주요 이벤트 및 고정 씬
+│   ├─ event_1.rpy
+│   ├─ event_2.rpy
+│   └─ ...
 │
-├─gui                            # 🖼️ GUI 리소스 이미지 폴더
-│  │
-│  bubble.png                    # 말풍선 이미지
-│  frame.png                     # 프레임 이미지
-│  ... (다양한 UI 요소 이미지)
-│  textbox.png                   # 대화창 이미지
-│  ...
+├─ gui/                          # 🖼️ UI 이미지 리소스
+│   ├─ bubble.png
+│   ├─ frame.png
+│   ├─ textbox.png
+│   └─ ...
 │
-├─images                         # 🎨 게임 내 사용되는 배경, 캐릭터 이미지 폴더
-│  │
-│  ├─background                  # 배경 이미지
-│  │  │  home.png, lab.png, main_screen.png, restaurant.png, ...
-│  │
-│  ├─dawon                       # 캐릭터: 다원 (표정)
-│  │  │  angry.png, normal.png, sad.png, shy.png, smile.png
-│  │
-│  ├─jiwoo                       # 캐릭터: 지우 (표정)
-│  │  │  ... 
-│  │
-│  ├─professor                   # 캐릭터: 교수님 (표정)
-│  │  │  ...
-│  │
-│  ├─suah                        # 캐릭터: 수아 (표정)
-│  │  │  ...
-│  └─user                        # 캐릭터: 사용자 (플레이어) 이미지
-│     │  normal.png
+├─ images/                       # 🎨 배경 및 캐릭터 이미지
+│   ├─ background/
+│   ├─ dawon/
+│   ├─ jiwoo/
+│   ├─ professor/
+│   ├─ suah/
+│   └─ user/
 │
-├─libs                           # 📚 외부 라이브러리/DLL 파일 관련 (추측)
-│  │
-│  libs.txt
+├─ libs/                         # 외부 라이브러리 및 DLL
 │
-├─saves                          # 💾 게임 저장 파일 (생략 가능)
-│  │
-│  ├─ ... (다양한 save, auto-save, tracesave 파일)
-│  └─ persistent
+├─ saves/                        # 💾 세이브 및 persistent 데이터
 │
-├─talk                           # 🗣️ 일반적인 대화 씬 스크립트
-│  │
-│  talk_1.rpy
-│  ...
-│  talk_12.rpy
+├─ talk/                         # 일반 대화 스크립트
+│   ├─ talk_1.rpy
+│   ├─ talk_2.rpy
+│   └─ ...
 │
-└─tl                             # 🌍 번역 관련 파일
-  └─None
-              common.rpym         # 번역 데이터 파일
-              common.rpymc        # 번역 캐시 파일 (생략 가능)
+└─ tl/                           # 🌍 번역 파일
+    └─ None/
+        ├─ common.rpym
+        └─ common.rpymc
+
 
 ## **👥 팀 소개**
 이름	직책 (Role)	상세 담당 업무 (Responsibilities)
