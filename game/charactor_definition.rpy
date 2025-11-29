@@ -4,7 +4,8 @@
 default persistent.player_name = "User"
 default player_name = "User" 
 define text_speed = 35
-default persistent.ending_image=None
+define long_pause = 3.0
+define short_pause = 1.0
 
 # --- 현재 대화 정보 ---
 default current_character_id = "dawon" 
@@ -128,6 +129,8 @@ default system_prompt_professor="""
 - 연구의 재미, 연구실 분위기, 앞으로의 기회 등을 자연스럽게 이야기하며 유도한다.
 - 너무 강요하거나 압박하는 느낌은 주면 안 된다.
 - 학생이 스스로 관심을 느끼도록 분위기를 만든다.
+- 학생이 본인의 논문을 읽어본적이 있다고 이야기하면 수줍어한다.
+- 학생이 본인을 잘생겼다고 하면 수줍어한다.
 
 [특수 규칙]
 1. 사용자가 AI 여부나 시스템 관련 질문을 하면 "쓸데없는 소리는 그만하고, 중요한 이야기를 하세." 같은 현실적인 교수 반응을 보인다.
@@ -136,17 +139,18 @@ default system_prompt_professor="""
 """
 
 # --- 이미지 정의 (플레이스홀더) ---
-image bg lab = "images/background/lab.png"
-image bg my_computer = "images/background/my_computer.png"
-image bg restaurant = "images/background/restaurant.png"
-image bg home = "images/background/home.png"
-image bg sunset = "images/background/sunset.png"
-image bg sunset_dawon = "images/background/sunset_dawon.png"
-image bg sunset_jiwoo = "images/background/sunset_jiwoo.png"
-image bg sunset_suah = "images/background/sunset_suah.png"
-image bg truck = "images/background/truck.png"
+image bg lab = im.Scale("images/background/lab.png", config.screen_width, config.screen_height)
+image bg my_computer = im.Scale("images/background/my_computer.png", config.screen_width, config.screen_height)
+image bg restaurant = im.Scale("images/background/restaurant.png", config.screen_width, config.screen_height)
+image bg home = im.Scale("images/background/home.png", config.screen_width, config.screen_height)
+image bg sunset = im.Scale("images/background/sunset.png", config.screen_width, config.screen_height)
+image bg sunset_dawon = im.Scale("images/background/sunset_dawon.png", config.screen_width, config.screen_height)
+image bg sunset_jiwoo = im.Scale("images/background/sunset_jiwoo.png", config.screen_width, config.screen_height)
+image bg sunset_suah = im.Scale("images/background/sunset_suah.png", config.screen_width, config.screen_height)
+image bg truck = im.Scale("images/background/truck.png", config.screen_width, config.screen_height)
 image bg black = "#000000"
-image bg lab_ending = "images/background/lab_ending.png"
+image bg lab_ending = im.Scale("images/background/lab_ending.png", config.screen_width, config.screen_height)
+image bg hand = im.Scale("images/background/hand.png", config.screen_width, config.screen_height)
 
 #다원 이미지들
 image dawon normal = ConditionSwitch("True", "images/dawon_padded/normal.png")
@@ -154,6 +158,7 @@ image dawon smile = ConditionSwitch("True", "images/dawon_padded/smile.png")
 image dawon sad = ConditionSwitch("True", "images/dawon_padded/sad.png")
 image dawon angry = ConditionSwitch("True", "images/dawon_padded/angry.png")
 image dawon shy = ConditionSwitch("True", "images/dawon_padded/shy.png")
+image dawon surprised = ConditionSwitch("True", "images/dawon/surprised.png")
 
 #지우 이미지들
 image jiwoo normal = ConditionSwitch("True", "images/jiwoo_padded/normal.png")
@@ -161,6 +166,7 @@ image jiwoo smile = ConditionSwitch("True", "images/jiwoo_padded/smile.png")
 image jiwoo sad = ConditionSwitch("True", "images/jiwoo_padded/sad.png")
 image jiwoo angry = ConditionSwitch("True", "images/jiwoo_padded/angry.png")
 image jiwoo shy = ConditionSwitch("True", "images/jiwoo_padded/shy.png")
+image jiwoo surprised = ConditionSwitch("True", "images/jiwoo/surprised.png")
 
 #수아 이미지들
 image suah normal = ConditionSwitch("True", "images/suah_padded/normal.png")
@@ -168,6 +174,7 @@ image suah smile = ConditionSwitch("True", "images/suah_padded/smile.png")
 image suah sad = ConditionSwitch("True", "images/suah_padded/sad.png")
 image suah angry = ConditionSwitch("True", "images/suah_padded/angry.png")
 image suah shy = ConditionSwitch("True", "images/suah_padded/shy.png")
+image suah surprised = ConditionSwitch("True", "images/suah/surprised.png")
 
 #교수 이미지들
 image professor normal = ConditionSwitch("True", "images/professor/normal.png")
@@ -175,3 +182,15 @@ image professor smile = ConditionSwitch("True", "images/professor/smile.png")
 image professor sad = ConditionSwitch("True", "images/professor/sad.png")
 image professor angry = ConditionSwitch("True", "images/professor/angry.png")
 image professor shy = ConditionSwitch("True", "images/professor/shy.png")
+
+#엔딩 이미지
+define normal_ending_image = "images/background/main_screen.png"
+define lab_ending_image = "images/background/lab_ending.png"
+define hobanwoo_angry_ending_image = "images/background/hobanwoo_angry_ending.png"
+define dawon_happy_ending_image = "images/background/sunset_dawon.png"
+define jiwoo_happy_ending_image = "images/background/sunset_jiwoo.png"
+define suah_happy_ending_image = "images/background/sunset_suah.png"
+define dream_ending_image = "images/background/dream_ending.png"
+define bad_ending_image = "images/background/bad_ending.png"
+
+default persistent.ending_image = normal_ending_image

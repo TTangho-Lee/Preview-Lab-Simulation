@@ -20,7 +20,7 @@ label lab_ending:
     "——신호 끊김——"
 
     scene black with fade
-    pause 3.0
+    pause short_pause
 
     "…삐…—"
 
@@ -65,8 +65,8 @@ label lab_ending:
     $ typing(researcher_b, "재부팅 들어갑니다.")
     "—시스템 재기동—"
 
-    pause 3.0
+    pause short_pause
 
-    $ persistent.ending_image = "images/background/lab_ending.png"
+    $ persistent.ending_image = lab_ending_image
     $ renpy.save_persistent()
     jump talk_1

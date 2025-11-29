@@ -338,7 +338,9 @@ style navigation_button:
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
-    properties gui.text_properties("navigation_button")
+    color "#FFFFFF"
+    outlines [(5, "#000000", 0, 0)]
+    #bold True
 
 
 ## Main Menu 스크린 ###############################################################
@@ -355,11 +357,9 @@ screen main_menu():
     # ★ 기본 메인 메뉴 배경
     $ bg_image = gui.main_menu_background
 
-    # ★ 엔딩을 본 적 있다면 persistent 이미지 사용
     if hasattr(persistent, "ending_image") and persistent.ending_image:
-        $ bg_image = persistent.ending_image
+        $ bg_image = im.Scale(persistent.ending_image, config.screen_width, config.screen_height)
 
-    # ★ 최종 결정된 배경 표시
     add bg_image
 
     ## 이 빈 프레임은 기본 메뉴를 어둡게 만듭니다.

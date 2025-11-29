@@ -19,7 +19,7 @@ label bad_ending:
     $ a = character_map[max_char_id]
     
     scene bg black with fade
-    show expression "%s sad" % max_char_id
+    show expression "%s surprised" % max_char_id
     
     $ typing(a, "너는 왜..")
     $ typing(a, "나와 [user_eulreul] 이어주지 않는거야?")
@@ -59,8 +59,9 @@ label bad_ending:
     $ typing(a, "우리는... 또 아무것도 기억 못하니까.")
 
     # --- 최종 탈퇴/리셋 메뉴 (강제 선택) ---
-    hide expression "%s sad" % max_char_id
+    hide expression "%s surprised" % max_char_id
     "'띠링'"
-    $ renpy.call_screen("message_toast", "KNUAI : [메세지] 새로운 메시지가 도착하였습니다.") 
-
+    $ send_notification("KNUAI : [메세지] 새로운 메시지가 도착하였습니다.")
+    $ persistent.ending_image = bad_ending_image
+    $ renpy.save_persistent()
     return

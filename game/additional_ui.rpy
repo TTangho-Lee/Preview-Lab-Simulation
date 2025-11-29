@@ -77,7 +77,7 @@ screen phone_overlay():
                 
                 # 기능 버튼 섹션
                 textbutton "🤖 호반우 챗봇 대화":
-                    action Call("hobanwoo_chat_start") 
+                    #action Call("hobanwoo_chat_start") 
                     xalign 0.5
                     text_size 22
                     text_color "#aaaaaa"
