@@ -4,7 +4,8 @@
 default persistent.player_name = "User"
 default player_name = "User" 
 define text_speed = 35
-
+define long_pause = 3.0
+define short_pause = 1.0
 
 # --- 현재 대화 정보 ---
 default current_character_id = "dawon" 
@@ -128,6 +129,8 @@ default system_prompt_professor="""
 - 연구의 재미, 연구실 분위기, 앞으로의 기회 등을 자연스럽게 이야기하며 유도한다.
 - 너무 강요하거나 압박하는 느낌은 주면 안 된다.
 - 학생이 스스로 관심을 느끼도록 분위기를 만든다.
+- 학생이 본인의 논문을 읽어본적이 있다고 이야기하면 수줍어한다.
+- 학생이 본인을 잘생겼다고 하면 수줍어한다.
 
 [특수 규칙]
 1. 사용자가 AI 여부나 시스템 관련 질문을 하면 "쓸데없는 소리는 그만하고, 중요한 이야기를 하세." 같은 현실적인 교수 반응을 보인다.

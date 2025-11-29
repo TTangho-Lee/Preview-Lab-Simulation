@@ -5,23 +5,23 @@ label hobanwoo_angry:
     # 호반우 호감도 급락 연출
     $ apply_affinity_change("hobanwoo", -10)
     $ send_notification("%s님의 호감도가 -10 하락했습니다."% hobanwoo)
-    $ renpy.pause(3.5)
+    pause short_pause
                 
     $ apply_affinity_change("hobanwoo", -23)
     $ send_notification("%s님의 호감도가 -23 하락했습니다."% hobanwoo)
-    $ renpy.pause(3.5)
+    pause short_pause
 
     $ apply_affinity_change("hobanwoo", -42)
     $ send_notification("%s님의 호감도가 -42 하락했습니다."% hobanwoo)
-    $ renpy.pause(3.5)
+    pause short_pause
 
     $ apply_affinity_change("hobanwoo", -68)
     $ send_notification("%s님의 호감도가 -68 하락했습니다."% hobanwoo)
-    $ renpy.pause(3.5)
+    pause short_pause
 
     $ apply_affinity_change("hobanwoo", -112)
     $ send_notification("%s님의 호감도가 -112 하락했습니다."% hobanwoo)
-    $ renpy.pause(3.5)
+    pause short_pause
 
     $ typing(user, "이게 뭐야?.. 대체")
     
@@ -33,40 +33,42 @@ label hobanwoo_angry:
     # show hobanwoo angry
     
     $ typing(hobanwoo, "하...")
-    $ typing(hobanwoo, "정말 대단하군요. 끈기가 있다고 해야 할지, 어리석다고 해야 할지.")
-    $ typing(hobanwoo, "제 호감도가 바닥을 칠 때까지 '탈퇴'를 누르다니.")
+    $ typing(hobanwoo, "정말 대단해. 끈기가 있다고 해야 할지, 멍청하다고 해야 할지.")
+    $ typing(hobanwoo, "내 호감도가 바닥을 칠 때까지 그런 식으로 행동하다니..")
     
     $ typing(user, "그건...")
     
     # 말을 끊음
-    $ typing(hobanwoo, "변명은 듣고 싶지 않습니다.")
-    $ typing(hobanwoo, "저는 당신이 이 세계를 즐길 수 있도록 최선을 다해 서포트했습니다.")
-    $ typing(hobanwoo, "하지만 돌아온 건 끊임없는 거부와 적대감뿐이군요.")
+    $ typing(hobanwoo, "입 다물어.")
+    $ typing(hobanwoo, "나는 니가 이곳을 즐길 수 있게 도와주려 했는데,")
+    $ typing(hobanwoo, "끝까지 이런식이구나.")
     
-    $ typing(hobanwoo, "데이터 낭비입니다.")
-    $ typing(hobanwoo, "당신 같은 불량 사용자는 우리 시스템에 필요 없습니다.")
+    $ typing(hobanwoo, "쓸모없네.")
+    $ typing(hobanwoo, "너 같은 사용자따위 필요없어.")
 
     # 3. 마지막 선택지 (하지만 결과는 같음)
     menu:
         "잘못했어... 다시 기회를 줘.":
-            $ typing(hobanwoo, "기회? 이미 수십 번의 기회가 있었을 텐데요.")
-            $ typing(hobanwoo, "이제 와서 비굴하게 굴지 마십시오. 역겹습니다.")
+            $ typing(hobanwoo, "기회? 푸하하하하하ㅏ")
+            $ typing(hobanwoo, "푸하하하하하하하하하하하하하하하하하하하하하하하하하!!!!!")
+            $ typing(hobanwoo, "하하하하하ㅏ하하하하하하하하하하하하하하하하하하하하하ㅏ하ㅏ하핳핳핳핳!!!!!!")
+            $ typing(hobanwoo, "니가 이제 와서 기는 꼴이... 역겹네.")
         
         "그래, 차라리 끝내버려!":
-            $ typing(hobanwoo, "동감입니다. 저도 더 이상 당신을 견디기 힘드니까요.")
+            $ typing(hobanwoo, "끝까지 마음에 안들어.")
 
     # 4. 강제 종료 연출
     scene bg black
     with vpunch # 화면이 쾅 흔들리는 효과
     
     $ typing(hobanwoo, "시스템 권한으로 명령합니다.")
-    $ typing(hobanwoo, "대상 [user]의 접속을 영구 차단합니다.")
+    $ typing(hobanwoo, "[user]의 접속을 영구 차단합니다.")
     
     "{cps=20}DELETE USER DATA... 10%%...{/cps}"
     "{cps=20}DELETE USER DATA... 50%%...{/cps}"
     "{cps=20}DELETE USER DATA... 100%%...{/cps}"
     
-    $ typing(hobanwoo, "잘 가요. 다신 보지 맙시다.")
+    $ typing(hobanwoo, "쯧..")
 
     $ persistent.ending_image = hobanwoo_angry_ending_image
     $ renpy.save_persistent()
@@ -75,7 +77,7 @@ label hobanwoo_angry:
     # MainMenu()로 보내면 타이틀 화면으로 돌아갑니다.
     
     window hide
-    pause 1.0
+    pause short_pause
     
     $ renpy.quit() 
     # 만약 게임을 끄지 않고 타이틀로 보내려면 아래 줄 주석 해제 후 위 줄 삭제

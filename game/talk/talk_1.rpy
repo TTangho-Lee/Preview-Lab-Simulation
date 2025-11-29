@@ -68,7 +68,7 @@ label talk_1:
     $ typing(user, "아 미안, 약간 감탄사야.")
     "일단 누르고 보는 [user], 버튼을 클릭하자 길다란 막대의 모습이 보였다."
     show screen phone_overlay
-    pause 10.0
+    pause long_pause
     hide screen phone_overlay
     
 

@@ -115,7 +115,7 @@ init python:
         return
 
 
-    def talk_loop_center(charactor, finish_condition, max_turn=8):
+    def talk_loop_center(charactor, finish_condition, max_turn=5):
         global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, professor_affinity
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_professor
         emotion_map = {
