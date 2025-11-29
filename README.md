@@ -67,60 +67,44 @@ Gemini API가 유저 입력 텍스트의 감정(긍정/부정/의심 등)을 실
 
 LAB_SIMULATION/
 │
-│  additional_ui.rpy             # 추가 UI/스크린 정의
-│  a_secret_key.rpy              # API 키/민감 정보 관리 (실 배포 시 제외 필요)
-│  charactor_definition.rpy      # 캐릭터 정보 및 기본 설정
-│  gemini_api.rpy                # Gemini API 연동 로직
-│  gui.rpy                       # GUI 스타일 및 설정
-│  options.rpy                   # 해상도/환경설정 등 옵션 정의
-│  python_function.rpy           # 게임 내부에서 사용하는 Python 함수 모음
-│  screens.rpy                   # 메인 메뉴 및 각종 화면(Screen) 정의
-│  script.rpy                    # 게임 메인 루트 스크립트
-│  SourceHanSansLite.ttf         # 게임에서 사용하는 폰트
-│  talk_loop.rpy                 # 대화 루프 메인 로직
-│  talk_loop_all_charactor.rpy   # 모든 캐릭터 대화 루프 통합 스크립트
+├─ additional_ui.rpy # 추가 UI 정의
+├─ a_secret_key.rpy # API 키 등 민감 정보 정의 (배포 시 제외)
+├─ charactor_definition.rpy # 캐릭터 기본 정의
+├─ gemini_api.rpy # Gemini API 통신 로직
+├─ gui.rpy # GUI 스타일 및 설정
+├─ options.rpy # 환경 설정
+├─ python_function.rpy # Python 헬퍼 함수들
+├─ screens.rpy # 메인 메뉴 및 UI 스크린
+├─ script.rpy # 게임 메인 루트 스크립트
+├─ SourceHanSansLite.ttf # 게임 폰트
+├─ talk_loop.rpy # 대화 루프 메인 로직
+├─ talk_loop_all_charactor.rpy # 전체 캐릭터 대화 루프
 │
-├─ cache/                        # Ren'Py 캐시 및 빌드 파일
+├─ cache/ # Ren'Py 캐시 파일
 │
-├─ endding/                      # 🎬 엔딩 시나리오 스크립트 모음
-│   ├─ bad_ending.rpy
-│   ├─ dream_ending.rpy
-│   ├─ endding_choice.rpy
-│   ├─ happy_ending.rpy
-│   └─ ...
+├─ endding/ # 엔딩 스크립트
+│ ├─ bad_ending.rpy
+│ ├─ dream_ending.rpy
+│ ├─ endding_choice.rpy
+│ ├─ happy_ending.rpy
+│ └─ ...
 │
-├─ event/                        # 🗓️ 주요 이벤트 및 고정 씬
-│   ├─ event_1.rpy
-│   ├─ event_2.rpy
-│   └─ ...
+├─ event/ # 이벤트 씬 스크립트
+│ ├─ event_1.rpy
+│ ├─ event_2.rpy
+│ └─ ...
 │
-├─ gui/                          # 🖼️ UI 이미지 리소스
-│   ├─ bubble.png
-│   ├─ frame.png
-│   ├─ textbox.png
-│   └─ ...
+├─ gui/ # UI 이미지 리소스
 │
-├─ images/                       # 🎨 배경 및 캐릭터 이미지
-│   ├─ background/
-│   ├─ dawon/
-│   ├─ jiwoo/
-│   ├─ professor/
-│   ├─ suah/
-│   └─ user/
+├─ images/ # 캐릭터/배경 이미지
 │
-├─ libs/                         # 외부 라이브러리 및 DLL
+├─ libs/ # 외부 라이브러리
 │
-├─ saves/                        # 💾 세이브 및 persistent 데이터
+├─ saves/ # 세이브 파일
 │
-├─ talk/                         # 일반 대화 스크립트
-│   ├─ talk_1.rpy
-│   ├─ talk_2.rpy
-│   └─ ...
+├─ talk/ # 일반 대화 스크립트
 │
-└─ tl/                           # 🌍 번역 파일
-    └─ None/
-        ├─ common.rpym
-        └─ common.rpymc
+└─ tl/ # 번역 파일
 
 
 ## **👥 팀 소개**
