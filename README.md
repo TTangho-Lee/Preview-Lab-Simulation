@@ -65,59 +65,12 @@ Gemini API가 유저 입력 텍스트의 감정(긍정/부정/의심 등)을 실
 
 ## 📁 `미리보는 연구실 시뮬레이션` 프로젝트 구조 요약
 
-LAB_SIMULATION/
- │
- ├─ additional_ui.rpy # 추가 UI 정의
- ├─ a_secret_key.rpy # API 키 등 민감 정보 정의 (배포 시 제외)
- ├─ charactor_definition.rpy # 캐릭터 기본 정의
-├─ gemini_api.rpy # Gemini API 통신 로직
-├─ gui.rpy # GUI 스타일 및 설정
-├─ options.rpy # 환경 설정
-├─ python_function.rpy # Python 헬퍼 함수들
-├─ screens.rpy # 메인 메뉴 및 UI 스크린
-├─ script.rpy # 게임 메인 루트 스크립트
-├─ SourceHanSansLite.ttf # 게임 폰트
-├─ talk_loop.rpy # 대화 루프 메인 로직
-├─ talk_loop_all_charactor.rpy # 전체 캐릭터 대화 루프
-│
-├─ cache/ # Ren'Py 캐시 파일
-│
-├─ endding/ # 엔딩 스크립트
-│ ├─ bad_ending.rpy
-│ ├─ dream_ending.rpy
-│ ├─ endding_choice.rpy
-│ ├─ happy_ending.rpy
-│ └─ ...
-│
-├─ event/ # 이벤트 씬 스크립트
-│ ├─ event_1.rpy
-│ ├─ event_2.rpy
-│ └─ ...
-│
-├─ gui/ # UI 이미지 리소스
-│
-├─ images/ # 캐릭터/배경 이미지
-│
-├─ libs/ # 외부 라이브러리
-│
-├─ saves/ # 세이브 파일
-│
-├─ talk/ # 일반 대화 스크립트
-│
-└─ tl/ # 번역 파일
+<img width="886" height="818" alt="image" src="https://github.com/user-attachments/assets/076f2f00-218c-4622-b484-c9b6ddac20a0" />
+<img width="883" height="864" alt="image" src="https://github.com/user-attachments/assets/451dfb7a-5009-44d2-a4f1-8dac18b23850" />
+<img width="882" height="243" alt="image" src="https://github.com/user-attachments/assets/66275797-72cc-4f51-a598-2a8c99987808" />
+
 
 
 ## **👥 팀 소개**
-이름	직책 (Role)	상세 담당 업무 (Responsibilities)
-이승호	System Architect
-& AI Engineer	• LLM API 파이프라인 구축: Ren'Py와 Gemini 간 실시간 통신 로직 구현
-• Backend Logic: JSON 데이터 파싱 및 게임 내 변수(호감도) 연동 로직 개발
-배명우	Client Engineer
-& UI/UX Design	• In-Game Interface 구현: KNUAI 스마트폰 오버레이 및 실시간 게이지 시스템 개발
-• Screen Language Scripting: Ren'Py 스크린 언어를 활용한 동적 UI/UX 설계
-신유민	Creative Director
-& Narrative Design	• Scenario Writing: 메인 스토리라인, 멀티 엔딩 분기 및 메타픽션 서사 기획
-• World Building: 세계관 및 캐릭터 설정 데이터베이스 구축
-허신행	Project Manager
-& Game Planner	• Game Concept Design: 총괄 디렉션, 게임의 핵심 재미 요소 기획 및 아이디어 구체화
-• Quality Assurance (QA): 버그 리포팅 및 사용자 경험(UX) 피드백 제공
+<img width="542" height="423" alt="image" src="https://github.com/user-attachments/assets/6cb29b22-e780-4a1a-a715-7f7d734e6590" />
+
