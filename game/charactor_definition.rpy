@@ -150,6 +150,7 @@ image bg sunset_suah = im.Scale("images/background/sunset_suah.png", config.scre
 image bg truck = im.Scale("images/background/truck.png", config.screen_width, config.screen_height)
 image bg black = "#000000"
 image bg lab_ending = im.Scale("images/background/lab_ending.png", config.screen_width, config.screen_height)
+image bg hand = im.Scale("images/background/hand.png", config.screen_width, config.screen_height)
 
 #다원 이미지들
 image dawon normal = ConditionSwitch("True", "images/dawon_padded/normal.png")
@@ -157,6 +158,7 @@ image dawon smile = ConditionSwitch("True", "images/dawon_padded/smile.png")
 image dawon sad = ConditionSwitch("True", "images/dawon_padded/sad.png")
 image dawon angry = ConditionSwitch("True", "images/dawon_padded/angry.png")
 image dawon shy = ConditionSwitch("True", "images/dawon_padded/shy.png")
+image dawon surprised = ConditionSwitch("True", "images/dawon/surprised.png")
 
 #지우 이미지들
 image jiwoo normal = ConditionSwitch("True", "images/jiwoo_padded/normal.png")
@@ -164,6 +166,7 @@ image jiwoo smile = ConditionSwitch("True", "images/jiwoo_padded/smile.png")
 image jiwoo sad = ConditionSwitch("True", "images/jiwoo_padded/sad.png")
 image jiwoo angry = ConditionSwitch("True", "images/jiwoo_padded/angry.png")
 image jiwoo shy = ConditionSwitch("True", "images/jiwoo_padded/shy.png")
+image jiwoo surprised = ConditionSwitch("True", "images/jiwoo/surprised.png")
 
 #수아 이미지들
 image suah normal = ConditionSwitch("True", "images/suah_padded/normal.png")
@@ -171,6 +174,7 @@ image suah smile = ConditionSwitch("True", "images/suah_padded/smile.png")
 image suah sad = ConditionSwitch("True", "images/suah_padded/sad.png")
 image suah angry = ConditionSwitch("True", "images/suah_padded/angry.png")
 image suah shy = ConditionSwitch("True", "images/suah_padded/shy.png")
+image suah surprised = ConditionSwitch("True", "images/suah/surprised.png")
 
 #교수 이미지들
 image professor normal = ConditionSwitch("True", "images/professor/normal.png")
@@ -181,12 +185,12 @@ image professor shy = ConditionSwitch("True", "images/professor/shy.png")
 
 #엔딩 이미지
 define normal_ending_image = "images/background/main_screen.png"
-#define lab_ending_image = "images/background/main_screen.png"
-#define hobanwoo_angry_ending_image = "images/background/main_screen.png"
+define lab_ending_image = "images/background/lab_ending.png"
+define hobanwoo_angry_ending_image = "images/background/hobanwoo_angry_ending.png"
 define dawon_happy_ending_image = "images/background/sunset_dawon.png"
 define jiwoo_happy_ending_image = "images/background/sunset_jiwoo.png"
 define suah_happy_ending_image = "images/background/sunset_suah.png"
-#define dream_ending_image = "images/background/main_screen.png"
-#define bad_ending_image = "images/background/main_screen.png"
+define dream_ending_image = "images/background/dream_ending.png"
+define bad_ending_image = "images/background/bad_ending.png"
 
 default persistent.ending_image = normal_ending_image

@@ -78,7 +78,5 @@ label hobanwoo_angry:
     
     window hide
     pause short_pause
-    
-    $ renpy.quit() 
-    # 만약 게임을 끄지 않고 타이틀로 보내려면 아래 줄 주석 해제 후 위 줄 삭제
+
     # return
