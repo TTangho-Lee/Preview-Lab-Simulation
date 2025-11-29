@@ -66,10 +66,10 @@ Gemini API가 유저 입력 텍스트의 감정(긍정/부정/의심 등)을 실
 ## 📁 `미리보는 연구실 시뮬레이션` 프로젝트 구조 요약
 
 LAB_SIMULATION/
-│
-├─ additional_ui.rpy # 추가 UI 정의
-├─ a_secret_key.rpy # API 키 등 민감 정보 정의 (배포 시 제외)
-├─ charactor_definition.rpy # 캐릭터 기본 정의
+ │
+ ├─ additional_ui.rpy # 추가 UI 정의
+ ├─ a_secret_key.rpy # API 키 등 민감 정보 정의 (배포 시 제외)
+ ├─ charactor_definition.rpy # 캐릭터 기본 정의
 ├─ gemini_api.rpy # Gemini API 통신 로직
 ├─ gui.rpy # GUI 스타일 및 설정
 ├─ options.rpy # 환경 설정
