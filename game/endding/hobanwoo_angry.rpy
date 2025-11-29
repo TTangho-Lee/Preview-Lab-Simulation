@@ -75,8 +75,5 @@ label hobanwoo_angry:
     # 5. 게임 강제 종료 (또는 메인 메뉴로 튕겨내기)
     # renpy.quit()를 쓰면 게임 창이 아예 꺼집니다. 
     # MainMenu()로 보내면 타이틀 화면으로 돌아갑니다.
-    
-    window hide
-    pause short_pause
 
-    # return
+    $ renpy.full_restart()
