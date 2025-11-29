@@ -4,8 +4,8 @@
     "mac",
     "linux",
     "win",
-    "pc",
-    "market"
+    "market",
+    "pc"
   ],
   "add_from": true,
   "force_recompile": true,
