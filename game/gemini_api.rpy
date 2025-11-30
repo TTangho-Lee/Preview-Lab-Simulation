@@ -12,8 +12,8 @@ init python:
         # 추가 지시사항(스토리 상황)이 있으면 포함
         extra_inst = ""
         if context_instruction:
-            current_condition = f"\n[현재 상황]: {context_instruction.split("/")[0]}\n"
-            goal = f"\n[목표 상황]: {context_instruction.split("/")[1]}\n"
+            current_condition = f"\n[현재 상황]: {context_instruction.split('/')[0]}\n"
+            goal = f"\n[목표 상황]: {context_instruction.split('/')[1]}\n"
 
         payload = {
             "contents": [
@@ -108,3 +108,73 @@ goal_achievement: <true/false>
         except Exception as e:
             print(f"Gemini Error: {e}")
             return "지금은 대화가 어렵습니다.",charactor_emotion, summary, current_affinity, False, False
+
+    def gemini_generate_choices(system_prompt, summary, charactor_said, current_affinity, player_name, context_instruction=None):
+        
+        # 추가 지시사항(스토리 상황)이 있으면 포함
+        extra_inst = ""
+        if context_instruction:
+            current_condition = f"\n[현재 상황]: {context_instruction.split('/')[0]}\n"
+            goal = f"\n[목표 상황]: {context_instruction.split('/')[1]}\n"
+
+        payload = {
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {"text": f"""
+System Instruction:
+{system_prompt}
+{current_condition}
+{goal}
+
+Previous Summary:
+{summary}
+
+Current Affinity: {current_affinity}
+Player Name: {player_name}
+
+Charactor Said:
+{charactor_said}
+
+Player Response Instruction:
+1. 다음은 플레이어가 할 만한 행동/대사 2개를 생성하는 부분이다.
+2. 플레이어의 입장에서, 캐릭터의 마지막 말에 대한 자연스러운 반응 2가지를 생성해라.
+3. 상황과 호감도에 맞는 자연스러운 문장이어야 한다.
+4. 아래의 형식에 맞춰서 답변 2개를 생성해라.
+---
+choice1: <답변1>
+choice2: <답변2>
+---
+"""}
+                    ]
+                }
+            ]
+        }
+
+        headers = {"Content-Type": "application/json"}
+
+        try:
+            response = requests.post(GEMINI_URL, headers=headers, data=json.dumps(payload), timeout=10)
+            result = response.json()
+
+            if "candidates" not in result:
+                return ["...", "..."]
+
+            text = result["candidates"][0]["content"]["parts"][0]["text"]
+
+            # 파싱
+            choice1 = "..."
+            choice2 = "..."
+
+            for line in text.split("\n"):
+                if line.startswith("choice1:"):
+                    choice1 = line.replace("choice1:", "").strip()
+                elif line.startswith("choice2:"):
+                    choice2 = line.replace("choice2:", "").strip()
+
+            return [choice1, choice2]
+
+        except Exception as e:
+            print(f"Gemini Error: {e}")
+            return ["...", "..."]

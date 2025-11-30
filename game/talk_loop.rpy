@@ -1,5 +1,5 @@
 init python:
-    def talk_loop(charactor, finish_condition, max_turn=3):
+    def talk_loop(charactor, finish_condition, max_turn=3, last_char_line=""):
         global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, professor_affinity
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_professor
         emotion_map = {
@@ -13,6 +13,7 @@ init python:
         summary = []
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
+        last_reply = last_char_line
 
         # 캐릭터별 초기 설정
         if charactor == "dawon":
@@ -33,7 +34,22 @@ init python:
             if turn_count >= max_turn+2:
                 return
 
-            user_msg = renpy.input(f"{player_name}:").strip()
+            # AI를 통해 선택지 생성
+            choices = gemini_generate_choices(sys_prompt, summary, last_reply, current_affinity, player_name, finish_condition)
+            
+            # 메뉴 표시
+            choice = renpy.display_menu(
+                [
+                    (choices[0], choices[0]),
+                    (choices[1], choices[1]),
+                    ("직접 입력", "direct_input")
+                ]
+            )
+
+            if choice == "direct_input":
+                user_msg = renpy.input(f"{player_name}:").strip()
+            else:
+                user_msg = choice
 
             if user_msg == "":
                 # 빈 입력은 턴 수에 포함하지 않거나, 그냥 넘어감
@@ -54,6 +70,7 @@ init python:
             reply, charactor_emotion, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
                 sys_prompt, summary, user_msg, current_affinity, player_name, current_condition
             )
+            last_reply = reply # 다음 턴의 선택지 생성을 위해 현재 응답을 저장
             reply = reply.replace("{", "{{").replace("}", "}}")
             sentences=[s for s in split_sentences(reply)]
             # 요약 저장
@@ -115,7 +132,7 @@ init python:
         return
 
 
-    def talk_loop_center(charactor, finish_condition, max_turn=5):
+    def talk_loop_center(charactor, finish_condition, max_turn=5, last_char_line=""):
         global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, professor_affinity
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_professor
         emotion_map = {
@@ -129,6 +146,7 @@ init python:
         summary = []
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
+        last_reply = last_char_line
 
         # 캐릭터별 초기 설정
         if charactor == "dawon":
@@ -149,7 +167,22 @@ init python:
             if turn_count >= max_turn+2:
                 return
 
-            user_msg = renpy.input(f"{player_name}:").strip()
+            # AI를 통해 선택지 생성
+            choices = gemini_generate_choices(sys_prompt, summary, last_reply, current_affinity, player_name, finish_condition)
+            
+            # 메뉴 표시
+            choice = renpy.display_menu(
+                [
+                    (choices[0], choices[0]),
+                    (choices[1], choices[1]),
+                    ("직접 입력", "direct_input")
+                ]
+            )
+
+            if choice == "direct_input":
+                user_msg = renpy.input(f"{player_name}:").strip()
+            else:
+                user_msg = choice
 
             if user_msg == "":
                 # 빈 입력은 턴 수에 포함하지 않거나, 그냥 넘어감
@@ -168,6 +201,7 @@ init python:
             reply, charactor_emotion, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
                 sys_prompt, summary, user_msg, current_affinity, player_name, current_condition
             )
+            last_reply = reply # 다음 턴의 선택지 생성을 위해 현재 응답을 저장
             reply = reply.replace("{", "{{").replace("}", "}}")
             sentences=[s for s in split_sentences(reply)]
             # 요약 저장

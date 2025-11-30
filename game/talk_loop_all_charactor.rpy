@@ -1,6 +1,6 @@
 init python:
     import random
-    def talk_loop_all_charactor(finish_condition, max_turn=5):
+    def talk_loop_all_charactor(finish_condition, max_turn=5, last_char_line=""):
         global player_name, dawon_affinity, jiwoo_affinity, suah_affinity, hobanwoo_affinity, professor_affinity
         global system_prompt_dawon, system_prompt_jiwoo, system_prompt_suah, system_prompt_hobanwoo, system_prompt_professor
         emotion_map = {
@@ -12,18 +12,54 @@ init python:
         }
         all_emotions = ["normal", "smile", "sad", "shy", "angry"]
         summary = []
-        summary.append(f"suah: 선배님들은 오늘 끝나고 뭐하세요? 일정 따로 있으세요?")
+        if last_char_line:
+            # Assuming the format is "character: message"
+            char_name = last_char_line.split(":")[0].strip().lower()
+            summary.append(f"{char_name}: {':'.join(last_char_line.split(':')[1:]).strip()}")
+
         is_sus = False
         turn_count = 0  # [추가] 대화 턴 수 카운트
+        
+        last_speaker = "suah" # initial speaker
         renpy.show("suah normal", at_list=[store.right])
+        last_reply = "선배님들은 오늘 끝나고 뭐하세요? 일정 따로 있으세요?"
+        renpy.say(suah, last_reply)
+
 
         while True:
             if turn_count >= max_turn+2:
                 return
-            user_msg = renpy.input(f"{player_name}:").strip()
+
+            if last_speaker == "dawon":
+                choice_affinity = dawon_affinity
+                choice_prompt = system_prompt_dawon
+            elif last_speaker == "suah":
+                choice_affinity = suah_affinity
+                choice_prompt = system_prompt_suah
+            else: # default to suah
+                choice_affinity = suah_affinity
+                choice_prompt = system_prompt_suah
+
+            choices = gemini_generate_choices(choice_prompt, summary, last_reply, choice_affinity, player_name, finish_condition)
+            
+            choice = renpy.display_menu(
+                [
+                    (choices[0], choices[0]),
+                    (choices[1], choices[1]),
+                    ("직접 입력", "direct_input")
+                ]
+            )
+
+            if choice == "direct_input":
+                user_msg = renpy.input(f"{player_name}:").strip()
+            else:
+                user_msg = choice
+
             if user_msg == "":
                 continue
+
             turn_count += 1
+            summary.append(f"user: {user_msg}")
             charactor = ask_llm_for_next_character(summary, user_msg)
 
             if charactor == "dawon":
@@ -48,12 +84,11 @@ init python:
             reply, charactor_emotion, summary_text, affinity_delta, is_sus, goal_achieved = gemini_generate_response(
                 sys_prompt, summary, user_msg, current_affinity, player_name, current_condition
             )
+            last_reply = reply
 
             reply = reply.replace("{", "{{").replace("}", "}}")
             sentences=[s for s in split_sentences(reply)]
-            # 요약 저장
-            summary.append(f"user: {user_msg}")
-
+            
             for emo in all_emotions:
                 renpy.hide("dawon " + emo)
                 renpy.hide("suah " + emo)
@@ -100,7 +135,7 @@ init python:
                     safe_s = s.replace("{", "{{").replace("}", "}}")
                     renpy.say(professor, "{cps=[text_speed]}%s{/cps}" % safe_s)
             
-            
+            last_speaker = charactor
 
             # [안전장치 2] 목표 달성 시 종료
             if goal_achieved:
